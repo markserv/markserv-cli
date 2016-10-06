@@ -1,0 +1,26 @@
+{
+  "name": "markserv-cli",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "mocha core --recursive",
+    "watch-test": "mocha core --recursive --watch"
+  },
+  "bin": {
+    "markserv": "index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bluebird": "^3.4.6",
+    "chai": "^3.5.0",
+    "chai-as-promised": "^6.0.0",
+    "commander": "^2.9.0",
+    "mocha": "^3.1.0"
+  },
+  "settings": {
+    "configFilename": "Markconf.js"
+  }
+}
