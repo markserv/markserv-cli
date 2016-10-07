@@ -3,7 +3,8 @@ const helpfs = require(__dirname + '/help.fs');
 // const Markconf = require(__dirname + '/markconf');
 
 let Markconf;
-let stack = {};
+
+let globalStack = {};
 
 const configure = conf => {
   Markconf = conf;
@@ -54,7 +55,7 @@ const countMembers = (obj) => {
 };
 
 const clearStack = () => {
-  stack = {};
+  globalStack = {};
 };
 
 const add = includes => {
@@ -71,17 +72,19 @@ const add = includes => {
     }
 
     Promise.all(loadStack).then(loadedModules => {
-      const includeStack = {};
+      const returnStack = {};
 
-      let i = 0;
+      let i = 0, activeModule;
+
       for (let moduleName in includes) {
-        includeStack[moduleName] = loadedModules[i];
+        activeModule = loadedModules[i];
         i += 1;
+
+        returnStack[moduleName] = activeModule;
+        globalStack[moduleName] = activeModule;
       };
 
-      // console.log(includeStack);
-
-      resolve(includeStack);
+      resolve(returnStack);
     })
     .catch(err => {
       // console.log(err);
@@ -96,7 +99,8 @@ const initialize = conf => {
 
 module.exports = {
   configure,
+  stack: globalStack,
   add,
-  stack,
+  clearStack,
 };
 

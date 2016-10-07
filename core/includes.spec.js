@@ -9,7 +9,12 @@ includes.configure({
   path: process.cwd(),
 });
 
+beforeEach(() => {
+  includes.clearStack();
+});
+
 describe('includes module', () => {
+
 
   it('fails with empty include conf', () => {
     const emptyIncludesConf = {};
@@ -37,19 +42,19 @@ describe('includes module', () => {
       html: 'markserv-inc-html',
     };
     const includeStack = includes.add(includesConf);
-    var expected = {
+    const expected = {
       html: { name: 'markserv-inc-html' },
     };
     return expect(includeStack).to.eventually.become(expected);
   });
 
   it('loads 2 include processors from: node_modules', () => {
-    const includesConf = {
+      const includesConf = {
       html: 'markserv-inc-html',
       markdown: 'markserv-inc-markdown',
     };
     const includeStack = includes.add(includesConf);
-    var expected = {
+    const expected = {
       html: { name: 'markserv-inc-html' },
       markdown: { name: 'markserv-inc-markdown' }
     };
@@ -60,7 +65,7 @@ describe('includes module', () => {
     const includesConf = {
       local: 'core/test/mock/includes/markserv-inc-local',
     };
-    var expected = {
+    const expected = {
       local: { name: 'markserv-inc-local' }
     };
     const includeStack = includes.add(includesConf);
@@ -71,10 +76,22 @@ describe('includes module', () => {
     const includesConf = {
       local: 'core/test/mock/includes/markserv-inc-local/index',
     };
-    var expected = {
+    const expected = {
       local: { name: 'markserv-inc-local' }
     };
     const includeStack = includes.add(includesConf);
     return expect(includeStack).to.eventually.become(expected);
+  });
+
+  it('can clear the loaded stack', () => {
+    const includesConf = {
+      html: 'markserv-inc-html',
+    };
+    const expected = {};
+    const includeStack = includes.add(includesConf).then(returnStack => {
+      includes.clearStack();
+      return includes.stack;
+    });
+    return expect(includeStack).to.become(expected);
   });
 });
