@@ -3,7 +3,7 @@ const chai = require('chai').use(chaiAsPromised);
 const help = require('./test/helpers/loadHelpers.js');
 const expect = chai.expect;
 
-const includes = require('./includes');
+const includes = require('./loadIncludes');
 
 includes.configure({
   path: process.cwd(),
@@ -15,10 +15,9 @@ beforeEach(() => {
 
 describe('includes module', () => {
 
-
   it('fails with empty include conf', () => {
     const emptyIncludesConf = {};
-    const result = includes.add(emptyIncludesConf);
+    const result = includes.load(emptyIncludesConf);
     const expected = [
       'Err: No includes provided'
     ];
@@ -33,7 +32,7 @@ describe('includes module', () => {
       'Err: No includes provided',
       'Err: Could not load: "this-module-should-never-exist"'
     ];
-    const result = includes.add(includesConf);
+    const result = includes.load(includesConf);
     return expect(result).to.be.rejectedWith(expected);
   });
 
@@ -41,7 +40,7 @@ describe('includes module', () => {
     const includesConf = {
       html: 'markserv-inc-html',
     };
-    const includeStack = includes.add(includesConf);
+    const includeStack = includes.load(includesConf);
     const expected = {
       html: { name: 'markserv-inc-html' },
     };
@@ -53,7 +52,7 @@ describe('includes module', () => {
       html: 'markserv-inc-html',
       markdown: 'markserv-inc-markdown',
     };
-    const includeStack = includes.add(includesConf);
+    const includeStack = includes.load(includesConf);
     const expected = {
       html: { name: 'markserv-inc-html' },
       markdown: { name: 'markserv-inc-markdown' }
@@ -68,7 +67,7 @@ describe('includes module', () => {
     const expected = {
       local: { name: 'markserv-inc-local' }
     };
-    const includeStack = includes.add(includesConf);
+    const includeStack = includes.load(includesConf);
     return expect(includeStack).to.eventually.become(expected);
   });
 
@@ -79,7 +78,7 @@ describe('includes module', () => {
     const expected = {
       local: { name: 'markserv-inc-local' }
     };
-    const includeStack = includes.add(includesConf);
+    const includeStack = includes.load(includesConf);
     return expect(includeStack).to.eventually.become(expected);
   });
 
@@ -88,7 +87,7 @@ describe('includes module', () => {
       html: 'markserv-inc-html',
     };
     const expected = {};
-    const includeStack = includes.add(includesConf).then(returnStack => {
+    const includeStack = includes.load(includesConf).then(returnStack => {
       includes.clearStack();
       return includes.stack;
     });
