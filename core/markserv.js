@@ -15,13 +15,11 @@ const configure = conf => {
 
 const initialize = () => {
   return new Promise((resolve, reject) => {
+    const includes = loadIncludes.load(Markconf.includes);
+    const coreHandlers = loadHandlers.load(Markconf.handlers.core);
 
     const loadStack = [];
-    const includes = loadIncludes.load(Markconf.includes);
-    // const handlers = loadHandlers.load(Markconf.handlers);
-
-    // loadStack.push(includes, handlers);
-    loadStack.push(includes);
+    loadStack.push(includes, coreHandlers);
 
     Promise.all(loadStack).then(loadedModules => {
       loadedIncludes = loadedModules[0];

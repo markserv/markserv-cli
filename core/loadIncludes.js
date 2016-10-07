@@ -1,6 +1,5 @@
 const fs = require('fs');
 const helpfs = require(__dirname + '/help.fs');
-// const Markconf = require(__dirname + '/markconf');
 
 let Markconf;
 
@@ -91,10 +90,6 @@ const load = includes => {
       return reject(['Err: Include could not be loaded'].concat(err));
     });
   });
-};
-
-const initialize = conf => {
-  Markconf = conf;
 };
 
 module.exports = {

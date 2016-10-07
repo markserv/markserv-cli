@@ -20,7 +20,7 @@ const loadLocalModule = modpath => {
   return activeModule;
 };
 
-const load = (name, deps) => {
+const fetchModule = (name, deps) => {
   return new Promise((resolve, reject) => {
     let activeModule;
 
@@ -57,7 +57,8 @@ const clearStack = () => {
   globalStack = {};
 };
 
-const add = handlers => {
+
+const load = handlers => {
   return new Promise((resolve, reject) => {
     const handlerCount = countMembers(handlers);
     const loadStack = [];
@@ -67,7 +68,7 @@ const add = handlers => {
     }
 
     for (let name in handlers) {
-      loadStack.push(load(name, handlers[name]));
+      loadStack.push(fetchModule(name, handlers[name]));
     }
 
     Promise.all(loadStack).then(loadedModules => {
@@ -92,14 +93,10 @@ const add = handlers => {
   });
 };
 
-const initialize = conf => {
-  Markconf = conf;
-};
-
 module.exports = {
   configure,
   stack: globalStack,
-  add,
+  load,
   clearStack,
 };
 
