@@ -13,19 +13,34 @@ const configure = conf => {
   loadHandlers.configure(conf);
 };
 
-const initialize = () => {
+const initialize = conf => {
+
+  if (typeof conf === 'object') {
+    configure(conf);
+  }
+
   return new Promise((resolve, reject) => {
     const includes = loadIncludes.load(Markconf.includes);
     const coreHandlers = loadHandlers.load(Markconf.handlers.core);
+    const pathHandlers = loadHandlers.load(Markconf.handlers.path);
 
     const loadStack = [];
-    loadStack.push(includes, coreHandlers);
+    loadStack.push(includes, coreHandlers, pathHandlers);
 
     Promise.all(loadStack).then(loadedModules => {
       loadedIncludes = loadedModules[0];
-      loadedHandlers = loadedModules[1];
+      loadedCoreHandlers = loadedModules[1];
+      loadedPathHandlers = loadedModules[1];
 
-      console.log(loadedIncludes);
+      const liveMarkconf = {
+        includes: loadedIncludes,
+        handlers: {
+          core: loadedCoreHandlers,
+          path: loadedPathHandlers,
+        }
+      };
+
+      resolve(liveMarkconf);
     }).catch(err => {
       console.error(err);
       reject(err);
@@ -34,7 +49,8 @@ const initialize = () => {
   });
 };
 
-const start = () => {
+const start = liveConf => {
+  console.log(liveConf);
 };
 
 module.exports = {
