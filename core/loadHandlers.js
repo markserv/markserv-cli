@@ -57,7 +57,6 @@ const clearStack = () => {
   globalStack = {};
 };
 
-
 const load = handlers => {
   return new Promise((resolve, reject) => {
     const handlerCount = countMembers(handlers);
@@ -99,4 +98,3 @@ module.exports = {
   load,
   clearStack,
 };
-

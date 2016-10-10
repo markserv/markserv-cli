@@ -1,6 +1,6 @@
 const chaiAsPromised = require('chai-as-promised');
 const chai = require('chai').use(chaiAsPromised);
-const help = require('./test/helpers/loadHelpers.js');
+const help = require('./spec/helpers/loadHelpers.js');
 const expect = chai.expect;
 
 const filterArgs = require('./filterArgs');
