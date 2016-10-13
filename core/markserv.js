@@ -30,7 +30,7 @@ const initialize = conf => {
     Promise.all(loadStack).then(loadedModules => {
       loadedIncludes = loadedModules[0];
       loadedCoreHandlers = loadedModules[1];
-      loadedPathHandlers = loadedModules[1];
+      loadedPathHandlers = loadedModules[2];
 
       const liveMarkconf = {
         includes: loadedIncludes,
