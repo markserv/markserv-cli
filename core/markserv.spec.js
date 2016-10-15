@@ -1,8 +1,7 @@
 const chaiAsPromised = require('chai-as-promised');
 const chai = require('chai').use(chaiAsPromised);
-const help = require('./spec/helpers/loadHelpers.js');
-const expect = chai.expect;
 
+const expect = chai.expect;
 const markserv = require('./markserv.js');
 
 // beforeEach(() => {
@@ -10,13 +9,12 @@ const markserv = require('./markserv.js');
 // });
 
 describe('markserv main module', () => {
-
   it('can initialize core Markconf', () => {
     const cwd = process.cwd();
 
     const mockArgs = {
       dir: cwd,
-      conf: cwd + '/Markconf.js',
+      conf: cwd + '/Markconf.js'
     };
 
     const Markconf = require('./markconf').initialize(mockArgs);
@@ -25,8 +23,7 @@ describe('markserv main module', () => {
 
     const expected = [
       'handlers',
-      'includes',
-      // 'name',
+      'includes'
     ];
 
     return expect(result).to.eventually.contain.all.keys(...expected);

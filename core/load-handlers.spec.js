@@ -1,12 +1,12 @@
 const chaiAsPromised = require('chai-as-promised');
 const chai = require('chai').use(chaiAsPromised);
-const help = require('./spec/helpers/loadHelpers.js');
+
 const expect = chai.expect;
 
-const loadHandlers = require('./loadHandlers.js');
+const loadHandlers = require('./load-handlers');
 
 loadHandlers.configure({
-  path: process.cwd(),
+  path: process.cwd()
 });
 
 beforeEach(() => {
@@ -14,7 +14,6 @@ beforeEach(() => {
 });
 
 describe('loadHandlers module', () => {
-
   it('fails with empty handler conf', () => {
     const emptyHandlersConf = {};
     const result = loadHandlers.load(emptyHandlersConf);
@@ -38,45 +37,45 @@ describe('loadHandlers module', () => {
 
   it('loads handler processor from: node_modules', () => {
     const handlersConf = {
-      dir: 'markserv-mod-dir',
+      dir: 'markserv-mod-dir'
     };
     const handlerStack = loadHandlers.load(handlersConf);
     const expected = {
-      dir: { name: 'markserv-mod-dir' },
+      dir: {name: 'markserv-mod-dir'}
     };
     return expect(handlerStack).to.eventually.become(expected);
   });
 
   it('loads 2 handler processors from: node_modules', () => {
-      const handlersConf = {
+    const handlersConf = {
       dir: 'markserv-mod-dir',
-      markdown: 'markserv-mod-markdown',
+      markdown: 'markserv-mod-markdown'
     };
     const handlerStack = loadHandlers.load(handlersConf);
     const expected = {
-      dir: { name: 'markserv-mod-dir' },
-      markdown: { name: 'markserv-mod-markdown' }
+      dir: {name: 'markserv-mod-dir'},
+      markdown: {name: 'markserv-mod-markdown'}
     };
     return expect(handlerStack).to.eventually.become(expected);
   });
 
-  it('loads handler processor from: local module script directory', function () {
+  it('loads handler processor from: local module script directory', () => {
     const handlersConf = {
-      local: 'core/spec/mock/modules/markserv-mod-local',
+      local: 'core/spec/mock/modules/markserv-mod-local'
     };
     const expected = {
-      local: { name: 'markserv-mod-local' }
+      local: {name: 'markserv-mod-local'}
     };
     const handlerStack = loadHandlers.load(handlersConf);
     return expect(handlerStack).to.eventually.become(expected);
   });
 
-  it('loads handler processor from: local module script .js file', function () {
+  it('loads handler processor from: local module script .js file', () => {
     const handlersConf = {
-      local: 'core/spec/mock/modules/markserv-inc-local/index',
+      local: 'core/spec/mock/modules/markserv-inc-local/index'
     };
     const expected = {
-      local: { name: 'markserv-inc-local' }
+      local: {name: 'markserv-inc-local'}
     };
     const handlerStack = loadHandlers.load(handlersConf);
     return expect(handlerStack).to.eventually.become(expected);
@@ -84,10 +83,10 @@ describe('loadHandlers module', () => {
 
   it('can clear the loaded stack', () => {
     const handlersConf = {
-      dir: 'markserv-mod-dir',
+      dir: 'markserv-mod-dir'
     };
     const expected = {};
-    const handlerStack = loadHandlers.load(handlersConf).then(returnStack => {
+    const handlerStack = loadHandlers.load(handlersConf).then(() => {
       loadHandlers.clearStack();
       return loadHandlers.stack;
     });

@@ -1,12 +1,12 @@
 const fs = require('fs');
 const path = require('path');
-const Promise = require('Bluebird');
+const Promise = require('bluebird');
 
 const cwd = process.cwd();
 
 const directoryExists = dir => {
   return new Promise((resolve, reject) => {
-    fs.stat(dir, function (err, stat) {
+    fs.stat(dir, (err, stat) => {
       if (err) {
         return reject(err);
       }
@@ -19,7 +19,7 @@ const directoryExists = dir => {
 
 const fileExists = filepath => {
   return new Promise((resolve, reject) => {
-    fs.stat(filepath, function (err, stat) {
+    fs.stat(filepath, (err, stat) => {
       if (err) {
         return reject(err);
       }
@@ -32,7 +32,7 @@ const fileExists = filepath => {
 
 const readfile = filepath => {
   return new Promise((resolve, reject) => {
-    fs.readFile(filepath, 'utf8', function (err, contents) {
+    fs.readFile(filepath, 'utf8', (err, contents) => {
       if (err) {
         return reject(err);
       }

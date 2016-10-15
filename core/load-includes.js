@@ -1,5 +1,4 @@
-const fs = require('fs');
-const helpfs = require(__dirname + '/help.fs');
+const path = require('path');
 
 let Markconf;
 
@@ -10,7 +9,7 @@ const configure = conf => {
 };
 
 const loadNpmModule = modpath => {
-  const activeModule = require(Markconf.path + '/node_modules/' + modpath);
+  const activeModule = require(path.join(Markconf.path, 'node_modules', modpath));
   return activeModule;
 };
 
@@ -27,12 +26,10 @@ const fetchModule = (name, deps) => {
     if (typeof deps === 'string') {
       try {
         activeModule = loadNpmModule(deps);
-      }
-      catch (err) {
+      } catch (err) {
         try {
           activeModule = loadLocalModule(deps);
-        }
-        catch (err) {
+        } catch (err) {
         }
       }
     }
@@ -45,11 +42,14 @@ const fetchModule = (name, deps) => {
   });
 };
 
-const countMembers = (obj) => {
+const countMembers = obj => {
   let count = 0;
-  for (member in obj) {
-    count += 1;
+  for (const member in obj) {
+    if ({}.hasOwnProperty.call(obj, member)) {
+      count += 1;
+    }
   }
+
   return count;
 };
 
@@ -66,22 +66,27 @@ const load = includes => {
       return reject(['Err: No includes provided']);
     }
 
-    for (let name in includes) {
-      loadStack.push(fetchModule(name, includes[name]));
+    for (const name in includes) {
+      if ({}.hasOwnProperty.call(includes, name)) {
+        loadStack.push(fetchModule(name, includes[name]));
+      }
     }
 
     Promise.all(loadStack).then(loadedModules => {
       const returnStack = {};
 
-      let i = 0, activeModule;
+      let i = 0;
+      let activeModule;
 
-      for (let moduleName in includes) {
-        activeModule = loadedModules[i];
-        i += 1;
+      for (const moduleName in includes) {
+        if ({}.hasOwnProperty.call(includes, moduleName)) {
+          activeModule = loadedModules[i];
+          i += 1;
 
-        returnStack[moduleName] = activeModule;
-        globalStack[moduleName] = activeModule;
-      };
+          returnStack[moduleName] = activeModule;
+          globalStack[moduleName] = activeModule;
+        }
+      }
 
       resolve(returnStack);
     })
@@ -96,5 +101,5 @@ module.exports = {
   configure,
   stack: globalStack,
   load,
-  clearStack,
+  clearStack
 };

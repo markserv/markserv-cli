@@ -1,12 +1,12 @@
 const chaiAsPromised = require('chai-as-promised');
 const chai = require('chai').use(chaiAsPromised);
-const help = require('./spec/helpers/loadHelpers.js');
+
 const expect = chai.expect;
 
-const loadIncludes = require('./loadIncludes');
+const loadIncludes = require('./load-includes');
 
 loadIncludes.configure({
-  path: process.cwd(),
+  path: process.cwd()
 });
 
 beforeEach(() => {
@@ -14,7 +14,6 @@ beforeEach(() => {
 });
 
 describe('loadIncludes module', () => {
-
   it('fails with empty include conf', () => {
     const emptyIncludesConf = {};
     const result = loadIncludes.load(emptyIncludesConf);
@@ -38,45 +37,45 @@ describe('loadIncludes module', () => {
 
   it('loads include processor from: node_modules', () => {
     const includesConf = {
-      html: 'markserv-inc-html',
+      html: 'markserv-inc-html'
     };
     const includeStack = loadIncludes.load(includesConf);
     const expected = {
-      html: { name: 'markserv-inc-html' },
+      html: {name: 'markserv-inc-html'}
     };
     return expect(includeStack).to.eventually.become(expected);
   });
 
   it('loads 2 include processors from: node_modules', () => {
-      const includesConf = {
+    const includesConf = {
       html: 'markserv-inc-html',
-      markdown: 'markserv-inc-markdown',
+      markdown: 'markserv-inc-markdown'
     };
     const includeStack = loadIncludes.load(includesConf);
     const expected = {
-      html: { name: 'markserv-inc-html' },
-      markdown: { name: 'markserv-inc-markdown' }
+      html: {name: 'markserv-inc-html'},
+      markdown: {name: 'markserv-inc-markdown'}
     };
     return expect(includeStack).to.eventually.become(expected);
   });
 
-  it('loads include processor from: local module script directory', function () {
+  it('loads include processor from: local module script directory', () => {
     const includesConf = {
-      local: 'core/spec/mock/modules/markserv-inc-local',
+      local: 'core/spec/mock/modules/markserv-inc-local'
     };
     const expected = {
-      local: { name: 'markserv-inc-local' }
+      local: {name: 'markserv-inc-local'}
     };
     const includeStack = loadIncludes.load(includesConf);
     return expect(includeStack).to.eventually.become(expected);
   });
 
-  it('loads include processor from: local module script .js file', function () {
+  it('loads include processor from: local module script .js file', () => {
     const includesConf = {
-      local: 'core/spec/mock/modules/markserv-inc-local/index',
+      local: 'core/spec/mock/modules/markserv-inc-local/index'
     };
     const expected = {
-      local: { name: 'markserv-inc-local' }
+      local: {name: 'markserv-inc-local'}
     };
     const includeStack = loadIncludes.load(includesConf);
     return expect(includeStack).to.eventually.become(expected);
@@ -84,10 +83,10 @@ describe('loadIncludes module', () => {
 
   it('can clear the loaded stack', () => {
     const includesConf = {
-      html: 'markserv-inc-html',
+      html: 'markserv-inc-html'
     };
     const expected = {};
-    const includeStack = loadIncludes.load(includesConf).then(returnStack => {
+    const includeStack = loadIncludes.load(includesConf).then(() => {
       loadIncludes.clearStack();
       return loadIncludes.stack;
     });

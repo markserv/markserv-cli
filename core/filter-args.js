@@ -10,21 +10,20 @@ program
   .option('-c, --conf', 'Markconf.js file to use.', 'markserv-conf-github');
 
 const filter = parsed => {
-
-  let filteredArgs = {
+  const filteredArgs = {
     dir: parsed.dir || cwd,
-    conf: parsed.conf || cwd + '/' + configFilename,
+    conf: parsed.conf || cwd + '/' + configFilename
   };
 
   return filteredArgs;
 };
 
 const parse = args => {
-  var parsed = program.parse(args || process.argv);
+  const parsed = program.parse(args || process.argv);
 
   return filter(parsed);
 };
 
 module.exports = {
-  parse,
+  parse
 };

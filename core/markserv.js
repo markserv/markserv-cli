@@ -1,11 +1,16 @@
-const Promise = require('Bluebird');
-const loadIncludes = require(__dirname + '/loadIncludes');
-const loadHandlers = require(__dirname + '/loadHandlers');
+const path = require('path');
+
+const Promise = require('bluebird');
+
+const loadIncludes = require(path.join(__dirname, 'load-includes'));
+const loadHandlers = require(path.join(__dirname, 'load-handlers'));
+const httpServer = require(path.join(__dirname, 'http-server'));
 
 let Markconf;
 
 let loadedIncludes = {};
-let loadedHandlers = {};
+let loadedCoreHandlers = {};
+let loadedPathHandlers = {};
 
 const configure = conf => {
   Markconf = conf;
@@ -14,7 +19,6 @@ const configure = conf => {
 };
 
 const initialize = conf => {
-
   if (typeof conf === 'object') {
     configure(conf);
   }
@@ -36,7 +40,7 @@ const initialize = conf => {
         includes: loadedIncludes,
         handlers: {
           core: loadedCoreHandlers,
-          path: loadedPathHandlers,
+          path: loadedPathHandlers
         }
       };
 
@@ -45,16 +49,16 @@ const initialize = conf => {
       console.error(err);
       reject(err);
     });
-
   });
 };
 
 const start = liveConf => {
-  console.log(liveConf);
+  httpServer.configure(liveConf);
+  httpServer.start();
 };
 
 module.exports = {
   configure,
   initialize,
-  start,
+  start
 };

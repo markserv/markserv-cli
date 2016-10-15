@@ -1,25 +1,37 @@
 const path = require('path');
 
 const initialize = args => {
-	const MarkconfPath = path.resolve(args.dir);
-  const MarkconfFile = args.conf;
-	const Markconf = require(args.conf);
+  const MarkconfPath = path.resolve(args.dir);
+  const MarkconfDefinition = require(args.conf);
 
-	const Runtime = {
+  const Runtime = {
 
     // Function to re-initialize yje config
-    initialize: initialize,
+    initialize,
 
-    args: args,
+    // Arguments passed to the process
+    args,
+
+    // ID of the process, user can kill
     pid: process.pid,
+
+    // URL of the running server
     url: 'http://' + args.address + ':' + args.port,
 
     // Path to the Markconf.js
     path: MarkconfPath,
-    serverRoot: args.dir,
-	};
 
-  return module.exports = Object.assign(Runtime, initialize, Markconf);
+    // Document root
+    serverRoot: args.dir
+  };
+
+  // Combine objects to create Markconf
+  const initialized = Object.assign(Runtime, initialize, MarkconfDefinition);
+
+  // Write over the export
+  module.exports = initialized;
+
+  return initialized;
 };
 
 module.exports = {

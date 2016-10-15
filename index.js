@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-const args = require('./core/filterArgs').parse(process.argv);
+const args = require('./core/filter-args').parse(process.argv);
 const Markconf = require('./core/markconf').initialize(args);
 const markserv = require('./core/markserv');
 

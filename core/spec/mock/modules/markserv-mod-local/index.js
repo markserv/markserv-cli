@@ -1,4 +1,4 @@
 module.exports = {
-  name: 'markserv-mod-local',
+  name: 'markserv-mod-local'
 };
 
