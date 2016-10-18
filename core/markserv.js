@@ -5,6 +5,7 @@ const Promise = require('bluebird');
 const loadIncludes = require(path.join(__dirname, 'load-includes'));
 const loadHandlers = require(path.join(__dirname, 'load-handlers'));
 const httpServer = require(path.join(__dirname, 'http-server'));
+const httpRequestHandler = require(path.join(__dirname, 'http-request-handler'));
 
 let Markconf;
 
@@ -13,9 +14,12 @@ let loadedCoreHandlers = {};
 let loadedPathHandlers = {};
 
 const configure = conf => {
+  console.log(conf);
   Markconf = conf;
   loadIncludes.configure(conf);
   loadHandlers.configure(conf);
+  httpServer.configure(conf);
+  httpRequestHandler.configure(conf);
 };
 
 const initialize = conf => {
@@ -36,7 +40,7 @@ const initialize = conf => {
       loadedCoreHandlers = loadedModules[1];
       loadedPathHandlers = loadedModules[2];
 
-      const liveMarkconf = {
+      const liveMarkconfModules = {
         includes: loadedIncludes,
         handlers: {
           core: loadedCoreHandlers,
@@ -44,7 +48,11 @@ const initialize = conf => {
         }
       };
 
-      resolve(liveMarkconf);
+      // SuperMarconf combines: process args, Markconf settings & loaded mods
+      // It can be re-initialized at any point
+      const SuperMarkconf = Object.assign(Markconf, liveMarkconfModules);
+
+      resolve(SuperMarkconf);
     }).catch(err => {
       console.error(err);
       reject(err);
@@ -52,9 +60,9 @@ const initialize = conf => {
   });
 };
 
-const start = liveConf => {
-  httpServer.configure(liveConf);
-  httpServer.start();
+const start = SuperMarkconf => {
+  httpServer.configure(SuperMarkconf);
+  httpServer.start(httpRequestHandler);
 };
 
 module.exports = {

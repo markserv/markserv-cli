@@ -1,13 +1,20 @@
 // const fs = require('fs');
 // const minimatch = require('minimatch');
 
-// let LiveMarkconf;
+let Markconf;
 
-// const configure = liveConf => {
-//   LiveMarkconf = liveConf;
-// };
+const configure = conf => {
+  Markconf = conf;
+  return Markconf;
+};
 
-// module.exports = {
-//   configure
-// };
+const handleRequest = (req, res, next) => {
+  console.log(".");
+  console.log(req, res, next);
+};
+
+module.exports = {
+  configure,
+  handleRequest
+};
 
