@@ -10,6 +10,12 @@ const configure = conf => {
   Markconf = conf;
 };
 
+const attachConfigurator = activeModule => {
+  activeModule.configure = conf => {
+    activeModule.Markconf = conf;
+  };
+};
+
 const loadNpmModule = modpath => {
   const activeModule = require(Markconf.path + '/node_modules/' + modpath);
   return activeModule;
@@ -83,6 +89,10 @@ const load = handlers => {
         if ({}.hasOwnProperty.call(handlers, moduleName)) {
           activeModule = loadedModules[i];
           i += 1;
+
+          // Make the module configurable
+          attachConfigurator(activeModule);
+          activeModule.configure(Markconf);
 
           returnStack[moduleName] = activeModule;
           globalStack[moduleName] = activeModule;

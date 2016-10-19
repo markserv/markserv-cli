@@ -2,6 +2,7 @@ const program = require('commander');
 const pkg = require('../package.json');
 
 const configFilename = pkg.settings.configFilename;
+const defaultsFilename = pkg.settings.defaultsFilename;
 const cwd = process.cwd();
 
 program
@@ -16,7 +17,8 @@ const filter = parsed => {
     dir: parsed.dir || cwd,
     conf: parsed.conf || cwd + '/' + configFilename,
     port: parsed.port,
-    address: parsed.address
+    address: parsed.address,
+    defaults: cwd + '/' + defaultsFilename
   };
 
   return filteredArgs;

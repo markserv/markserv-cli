@@ -3,6 +3,7 @@ const path = require('path');
 const initialize = args => {
   const MarkconfPath = path.resolve(args.dir);
   const MarkconfDefinition = require(args.conf);
+  const DefaultsDefinition = require(args.defaults);
 
   const Runtime = {
 
@@ -25,8 +26,25 @@ const initialize = args => {
     serverRoot: args.dir
   };
 
+  // console.log(args.defaults);
+
+  // // if (MarkconfDefinition.defaults) {
+  // // }
+
   // Combine objects to create Markconf
-  const initialized = Object.assign(Runtime, initialize, MarkconfDefinition);
+  const initialized = Object.assign(
+    // CLI Args
+    Runtime,
+
+    // Re-initialization callback
+    initialize,
+
+    // Loaded Defaults (can be overridden in conf)
+    DefaultsDefinition,
+
+    // The loaded Markconf.js file
+    MarkconfDefinition
+  );
 
   // Write over the export
   module.exports = initialized;

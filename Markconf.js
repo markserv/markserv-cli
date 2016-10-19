@@ -3,6 +3,12 @@ const Markconf = {
   title: 'Markconf Example',
   watchConf: true,
   serverRoot: 'some-pre-defined-path',
+  // defaults: {
+  //   fileTypes: {
+  //     markdown
+  //   }
+
+  // }
 
   includes: {
     html: 'markserv-inc-html',

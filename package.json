@@ -22,7 +22,8 @@
     "mocha": "^3.1.0"
   },
   "settings": {
-    "configFilename": "Markconf.js"
+    "configFilename": "Markconf.js",
+    "defaultsFilename": "Markconf.defaults.js"
   },
   "devDependencies": {
     "xo": "^0.17.0"
@@ -40,7 +41,10 @@
     },
     "overrides": [
       {
-        "files": "**/Markconf.js",
+        "files": [
+          "**/Markconf.js",
+          "**/Markconf.defaults.js"
+        ],
         "rules": {
           "unicorn/filename-case": ["error", {"case": "pascalCase"}]
         }
