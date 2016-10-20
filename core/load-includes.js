@@ -1,8 +1,8 @@
 const path = require('path');
 
-let globalStack = {};
-
 let Markconf;
+
+let globalStack = {};
 
 const configure = conf => {
   Markconf = conf;

@@ -16,14 +16,39 @@ const attachConfigurator = activeModule => {
   };
 };
 
+const modulePkgMeta = pkg => {
+  const meta = {
+    name: pkg.name,
+    version: pkg.version,
+    description: pkg.description
+  };
+
+  return meta;
+};
+
+const activateModule = fullModPath => {
+  const moduleCallback = require(fullModPath);
+  const modulePkg = require(fullModPath + '/package.json');
+
+  const activatedModule = {
+    meta: modulePkgMeta(modulePkg),
+    httpResponseModifier: moduleCallback
+  };
+
+  console.log(activatedModule);
+
+  return activatedModule;
+};
+
 const loadNpmModule = modpath => {
-  const activeModule = require(Markconf.path + '/node_modules/' + modpath);
+  const fullModPath = Markconf.path + '/node_modules/' + modpath;
+  const activeModule = activateModule(fullModPath);
   return activeModule;
 };
 
 const loadLocalModule = modpath => {
-  const fullpath = Markconf.path + '/' + modpath;
-  const activeModule = require(fullpath);
+  const fullModPath = Markconf.path + '/' + modpath;
+  const activeModule = activateModule(fullModPath);
   return activeModule;
 };
 
