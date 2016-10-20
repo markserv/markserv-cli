@@ -1,4 +1,1 @@
-module.exports = {
-  name: 'markserv-mod-local'
-};
-
+module.exports = () => {};

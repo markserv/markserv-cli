@@ -14,7 +14,8 @@ describe('markserv main module', () => {
 
     const mockArgs = {
       dir: cwd,
-      conf: cwd + '/Markconf.js'
+      conf: cwd + '/Markconf.js',
+      defaults: cwd + '/Markconf.Defaults.js'
     };
 
     const Markconf = require('./markconf').initialize(mockArgs);

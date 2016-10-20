@@ -41,10 +41,7 @@
     },
     "overrides": [
       {
-        "files": [
-          "**/Markconf.js",
-          "**/Markconf.defaults.js"
-        ],
+        "files": "**/Markconf.*",
         "rules": {
           "unicorn/filename-case": ["error", {"case": "pascalCase"}]
         }

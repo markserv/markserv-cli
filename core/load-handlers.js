@@ -23,19 +23,36 @@ const modulePkgMeta = pkg => {
     description: pkg.description
   };
 
+  if ({}.hasOwnProperty.call(pkg, 'author')) {
+    meta.author = pkg.author;
+  }
+
   return meta;
+};
+
+const getModulePkg = fullModPath => {
+  let modulePkg;
+
+  try {
+    modulePkg = require(fullModPath + '/package.json');
+  } catch (err) {
+    const paths = fullModPath.split('/');
+    modulePkg = {
+      name: paths[paths.length - 1]
+    };
+  }
+
+  return modulePkg;
 };
 
 const activateModule = fullModPath => {
   const moduleCallback = require(fullModPath);
-  const modulePkg = require(fullModPath + '/package.json');
+  const modulePkg = getModulePkg(fullModPath);
 
   const activatedModule = {
     meta: modulePkgMeta(modulePkg),
     httpResponseModifier: moduleCallback
   };
-
-  console.log(activatedModule);
 
   return activatedModule;
 };

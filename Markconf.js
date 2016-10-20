@@ -20,7 +20,7 @@ const Markconf = {
     core: {
       directory: 'markserv-mod-dir',
       markdown: 'markserv-mod-markdown',
-      http404: 'markserv-mod-http404',
+      http404: 'markserv-mod-http-404',
       file: 'markserv-mod-file'
     },
 
