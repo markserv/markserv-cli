@@ -1,22 +1,33 @@
 const Markconf = {
-
   title: 'Markconf Example',
-  watchConf: true,
+
   serverRoot: 'some-pre-defined-path',
+
   // defaults: {
   //   fileTypes: {
-  //     markdown
+  //     markdown: [
+  //      '.md'
+  //    ]
   //   }
-
   // }
 
-  includes: {
+  watch: {
+    Markconf: true,
+    modifiers: true,
+    includers: true,
+    templates: true,
+    paths: true
+  },
+
+  // File includers
+  includers: {
     html: 'markserv-inc-html',
     markdown: 'markserv-inc-markdown',
     less: 'markserv-inc-less'
   },
 
-  handlers: {
+  // HTTP Response Modifiers
+  modifiers: {
     core: {
       directory: 'markserv-mod-dir',
       markdown: 'markserv-mod-markdown',

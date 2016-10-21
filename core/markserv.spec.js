@@ -23,7 +23,7 @@ describe('markserv main module', () => {
     const result = markserv.initialize(Markconf);
 
     const expected = [
-      'handlers',
+      'modifiers',
       'includes'
     ];
 

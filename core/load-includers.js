@@ -57,18 +57,18 @@ const clearStack = () => {
   globalStack = {};
 };
 
-const load = includes => {
+const load = includers => {
   return new Promise((resolve, reject) => {
-    const includeCount = countMembers(includes);
+    const includerCount = countMembers(includers);
     const loadStack = [];
 
-    if (includeCount <= 0) {
-      return reject(['Err: No includes provided']);
+    if (includerCount <= 0) {
+      return reject(['Err: No includers provided']);
     }
 
-    for (const name in includes) {
-      if ({}.hasOwnProperty.call(includes, name)) {
-        loadStack.push(fetchModule(name, includes[name]));
+    for (const name in includers) {
+      if ({}.hasOwnProperty.call(includers, name)) {
+        loadStack.push(fetchModule(name, includers[name]));
       }
     }
 
@@ -78,8 +78,8 @@ const load = includes => {
       let i = 0;
       let activeModule;
 
-      for (const moduleName in includes) {
-        if ({}.hasOwnProperty.call(includes, moduleName)) {
+      for (const moduleName in includers) {
+        if ({}.hasOwnProperty.call(includers, moduleName)) {
           activeModule = loadedModules[i];
           i += 1;
 
@@ -92,7 +92,7 @@ const load = includes => {
     })
     .catch(err => {
       // console.log(err);
-      return reject(['Err: Include could not be loaded'].concat(err));
+      return reject(['Err: Includer could not be loaded'].concat(err));
     });
   });
 };

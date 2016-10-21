@@ -40,8 +40,8 @@ const handleRequest = (req, res) => {
 
   const isMarkdownFile = hasMarkdownExt(requestPath);
 
-  if (isMarkdownFile && Markconf.handlers.core.markdown) {
-    Markconf.handlers.core.markdown.httpResponseModifier(requestPath)
+  if (isMarkdownFile && Markconf.modifiers.core.markdown) {
+    Markconf.modifiers.core.markdown.httpResponseModifier(requestPath)
     .then(modifiedResponse => {
       httpRespond(modifiedResponse, res);
     });

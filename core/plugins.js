@@ -8,6 +8,4 @@ if (module.parent.parent === null) {
       includer: require('./plugin-includer')
     }
   };
-} else {
-  module.parent.exports = {};
 }

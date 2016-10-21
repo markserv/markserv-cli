@@ -2,22 +2,23 @@ const path = require('path');
 
 const Promise = require('bluebird');
 
-const loadIncludes = require(path.join(__dirname, 'load-includes'));
-const loadHandlers = require(path.join(__dirname, 'load-handlers'));
+const loadIncluders = require(path.join(__dirname, 'load-includers'));
+const loadModifiers = require(path.join(__dirname, 'load-modifiers'));
+// const loadTemplates = require(path.join(__dirname, 'load-templates'));
 const httpServer = require(path.join(__dirname, 'http-server'));
 const httpRequestHandler = require(path.join(__dirname, 'http-request-handler'));
 
 let Markconf;
 
-let loadedIncludes = {};
-let loadedCoreHandlers = {};
-let loadedPathHandlers = {};
+let loadedIncluders = {};
+let loadedCoreModifiers = {};
+let loadedPathModifiers = {};
 
 const configure = conf => {
   console.log(conf);
   Markconf = conf;
-  loadIncludes.configure(conf);
-  loadHandlers.configure(conf);
+  loadIncluders.configure(conf);
+  loadModifiers.configure(conf);
   httpServer.configure(conf);
   httpRequestHandler.configure(conf);
 };
@@ -28,23 +29,33 @@ const initialize = conf => {
   }
 
   return new Promise((resolve, reject) => {
-    const includes = loadIncludes.load(Markconf.includes);
-    const coreHandlers = loadHandlers.load(Markconf.handlers.core);
-    const pathHandlers = loadHandlers.load(Markconf.handlers.path);
+    // Load Includes
+    const includers = loadIncluders.load(Markconf.includers);
 
+    // Load Handlers/Modifiers
+    const coreModifiers = loadModifiers.load(Markconf.modifiers.core);
+    const pathModifiers = loadModifiers.load(Markconf.modifiers.path);
+
+    // Load Templates
+    // const allHandlerModules = Object.assign(coreHandlers, pathHandlers);
+    // const allTemplates = loadTemplates.load(allHandlerModules);
+
+    // Place all load operations on a promise stack
     const loadStack = [];
-    loadStack.push(includes, coreHandlers, pathHandlers);
+    // loadStack.push(includes, coreHandlers, pathHandlers, allTemplates);
+    loadStack.push(includers, coreModifiers, pathModifiers);
 
-    Promise.all(loadStack).then(loadedModules => {
-      loadedIncludes = loadedModules[0];
-      loadedCoreHandlers = loadedModules[1];
-      loadedPathHandlers = loadedModules[2];
+    Promise.all(loadStack).then(loaded => {
+      loadedIncluders = loaded[0];
+      loadedCoreModifiers = loaded[1];
+      loadedPathModifiers = loaded[2];
+      // loadedTemplates = loaded[3];
 
       const liveMarkconfModules = {
-        includes: loadedIncludes,
-        handlers: {
-          core: loadedCoreHandlers,
-          path: loadedPathHandlers
+        includes: loadedIncluders,
+        modifiers: {
+          core: loadedCoreModifiers,
+          path: loadedPathModifiers
         }
       };
 
