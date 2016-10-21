@@ -15,18 +15,18 @@
   "license": "ISC",
   "dependencies": {
     "bluebird": "^3.4.6",
-    "chai": "^3.5.0",
-    "chai-as-promised": "^6.0.0",
     "commander": "^2.9.0",
-    "connect": "^3.5.0",
-    "mocha": "^3.1.0"
+    "connect": "^3.5.0"
   },
   "settings": {
     "configFilename": "Markconf.js",
-    "defaultsFilename": "Markconf.defaults.js"
+    "defaultsFilename": "Markconf.Defaults.js"
   },
   "devDependencies": {
-    "xo": "^0.17.0"
+    "xo": "^0.17.0",
+    "chai": "^3.5.0",
+    "chai-as-promised": "^6.0.0",
+    "mocha": "^3.1.0"
   },
   "xo": {
     "esnext": true,

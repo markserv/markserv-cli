@@ -1,7 +1,3 @@
-// const fs = require('fs');
-
-// const helpfs = require(__dirname + '/help.fs');
-
 let Markconf;
 
 let globalStack = {};
@@ -20,7 +16,8 @@ const modulePkgMeta = pkg => {
   const meta = {
     name: pkg.name,
     version: pkg.version,
-    description: pkg.description
+    description: pkg.description,
+    template: pkg.template
   };
 
   if ({}.hasOwnProperty.call(pkg, 'author')) {
@@ -46,12 +43,16 @@ const getModulePkg = fullModPath => {
 };
 
 const activateModule = fullModPath => {
-  const moduleCallback = require(fullModPath);
+  const httpResponseModifier = require(fullModPath);
+
   const modulePkg = getModulePkg(fullModPath);
+  const meta = modulePkgMeta(modulePkg);
+
+  httpResponseModifier.template = meta.template;
 
   const activatedModule = {
-    meta: modulePkgMeta(modulePkg),
-    httpResponseModifier: moduleCallback
+    meta,
+    httpResponseModifier
   };
 
   return activatedModule;
