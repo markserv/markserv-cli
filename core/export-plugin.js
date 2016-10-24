@@ -1,6 +1,4 @@
-// These exports are used by the plugin architecture only, and should not be
-// loaded when running Markserv from the CLI.
-global.log.trace('CLI Mode = false (plugin mode)');
+global.logger.trace('CLI Mode = false (plugin mode)');
 
 module.exports = {
   helpers: require('./helpers'),

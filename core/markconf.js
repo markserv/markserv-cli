@@ -1,5 +1,4 @@
 const path = require('path');
-global.log = require('./logging');
 
 const initialize = args => {
   global.log.setLevel(args.loglevel);

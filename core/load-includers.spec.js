@@ -4,6 +4,7 @@ const chai = require('chai').use(chaiAsPromised);
 const expect = chai.expect;
 
 const loadIncludes = require('./load-includers');
+// global.logging =
 
 loadIncludes.configure({
   path: process.cwd()

@@ -1,4 +1,9 @@
+const logging = require('./logging.helper.js');
+const filesys = require('./file-system.helper.js');
+const loadmodule = require('./load-module.helper.js');
+
 module.exports = {
-  filesys: require('./file-system.js'),
-  loadmodule: require('./load-module.js')
+  logging,
+  filesys,
+  loadmodule
 };

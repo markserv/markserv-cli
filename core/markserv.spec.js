@@ -1,7 +1,10 @@
 const chaiAsPromised = require('chai-as-promised');
 const chai = require('chai').use(chaiAsPromised);
 
+const help = require('./spec/helpers/load-helpers');
+
 const expect = chai.expect;
+global.log = help.logging;
 const markserv = require('./markserv.js');
 
 // beforeEach(() => {
