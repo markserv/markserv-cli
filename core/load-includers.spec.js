@@ -3,7 +3,7 @@ const chai = require('chai').use(chaiAsPromised);
 
 const expect = chai.expect;
 
-const loadIncludes = require('./load-includes');
+const loadIncludes = require('./load-includers');
 
 loadIncludes.configure({
   path: process.cwd()

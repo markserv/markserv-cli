@@ -1,12 +1,9 @@
 #!/usr/bin/env node
 
-require('./core/plugins');
+const Markconf = require('./core/load-configuration');
 
-const args = require('./core/filter-args').parse(process.argv);
-const Markconf = require('./core/markconf').initialize(args);
-const markserv = require('./core/markserv');
+module.exports = require('./core/export-plugin');
 
-markserv.initialize(Markconf)
-  .then(markserv.start);
-
-module.exports.markserv = markserv;
+if (!module.parent) {
+  module.exports.markserv = require('./core/export-markserv')(Markconf);
+}

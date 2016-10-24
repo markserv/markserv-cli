@@ -29,14 +29,14 @@ const Markconf = {
   // HTTP Response Modifiers
   modifiers: {
     core: {
-      directory: 'markserv-mod-dir',
+      // directory: 'markserv-mod-dir',
       markdown: 'markserv-mod-markdown',
-      http404: 'markserv-mod-http-404',
-      file: 'markserv-mod-file'
+      // http404: 'markserv-mod-http-404',
+      // file: 'markserv-mod-file'
     },
 
     path: {
-      'tests/posts/**/*.md': 'markserv-mod-post'
+      // 'tests/posts/**/*.md': 'markserv-mod-post'
     }
   },
 

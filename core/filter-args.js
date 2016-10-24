@@ -10,7 +10,8 @@ program
   .option('-d, --dir', 'Directory to serve from.', './')
   .option('-p, --port [type]', 'Port to serve on [port]', 8080)
   .option('-a, --address [type]', 'IP sddress to serve on [address]', 'localhost')
-  .option('-c, --conf', 'Markconf.js file to use.', 'markserv-conf-github');
+  .option('-c, --conf', 'Markconf.js file to use.', 'markserv-conf-github')
+  .option('-l, --loglevel [type]', 'TRACE, DEBUG, INFO, WARN, ERROR, FATAL [loglevel]', 'WARN');
 
 const filter = parsed => {
   const filteredArgs = {
@@ -18,6 +19,7 @@ const filter = parsed => {
     conf: parsed.conf || cwd + '/' + configFilename,
     port: parsed.port,
     address: parsed.address,
+    loglevel: parsed.loglevel,
     defaults: cwd + '/' + defaultsFilename
   };
 

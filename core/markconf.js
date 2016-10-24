@@ -1,6 +1,9 @@
 const path = require('path');
+global.log = require('./logging');
 
 const initialize = args => {
+  global.log.setLevel(args.loglevel);
+
   const MarkconfPath = path.resolve(args.dir);
   const MarkconfDefinition = require(args.conf);
   const DefaultsDefinition = require(args.defaults);

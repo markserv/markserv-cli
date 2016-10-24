@@ -62,11 +62,14 @@ const clearStack = () => {
 
 const load = modifiers => {
   return new Promise((resolve, reject) => {
-    const handlerCount = countMembers(modifiers);
+    const modifierCount = countMembers(modifiers);
     const loadStack = [];
 
-    if (handlerCount <= 0) {
-      return reject(['Err: No modifiers provided']);
+    console.log(modifiers);
+
+    if (modifierCount <= 0) {
+      // No modifiers provided
+      resolve(null);
     }
 
     for (const name in modifiers) {
@@ -94,14 +97,15 @@ const load = modifiers => {
 
           returnStack[moduleName] = activeModule;
           globalStack[moduleName] = activeModule;
+          console.log(moduleName, activeModule);
         }
       }
 
       resolve(returnStack);
     })
     .catch(err => {
-      // console.log(err);
-      return reject(['Err: Handler could not be loaded'].concat(err));
+      console.error(err);
+      return reject(['Err: Modifier could not be loaded'].concat(err));
     });
   });
 };

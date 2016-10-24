@@ -45,6 +45,8 @@ const compileTemplate = templatePath => {
 module.exports = (ModifierModule, initFunction) => {
   let Markconf;
 
+  console.log('-------------------------------');
+
   const configure = conf => {
     Markconf = conf;
   };
@@ -62,8 +64,10 @@ module.exports = (ModifierModule, initFunction) => {
   const loadModifier = () => {};
 
   const httpResponseModifier = initFunction(Markconf, template);
+
   ModifierModule.exports = {
     configure,
+    Markconf,
     meta,
     template,
     templatePath,

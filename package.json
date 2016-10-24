@@ -16,7 +16,8 @@
   "dependencies": {
     "bluebird": "^3.4.6",
     "commander": "^2.9.0",
-    "connect": "^3.5.0"
+    "connect": "^3.5.0",
+    "log4js": "^0.6.38"
   },
   "settings": {
     "configFilename": "Markconf.js",
@@ -32,7 +33,7 @@
     "esnext": true,
     "space": 2,
     "globals": [
-      "it" , 
+      "it",
       "describe",
       "beforeEach"
     ],
@@ -43,7 +44,12 @@
       {
         "files": "**/Markconf.*",
         "rules": {
-          "unicorn/filename-case": ["error", {"case": "pascalCase"}]
+          "unicorn/filename-case": [
+            "error",
+            {
+              "case": "pascalCase"
+            }
+          ]
         }
       }
     ]

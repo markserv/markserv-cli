@@ -15,7 +15,6 @@ let loadedCoreModifiers = {};
 let loadedPathModifiers = {};
 
 const configure = conf => {
-  console.log(conf);
   Markconf = conf;
   loadIncluders.configure(conf);
   loadModifiers.configure(conf);
