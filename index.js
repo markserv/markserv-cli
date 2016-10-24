@@ -1,9 +1,10 @@
 #!/usr/bin/env node
 
-const Markconf = require('./core/load-configuration');
+const Markconf = require('./core/initialize-markconf.js');
+module.exports = require('./core/plugins.js');
 
-module.exports = require('./core/export-plugin');
+const CLI = !module.parent;
 
-if (!module.parent) {
-  module.exports.markserv = require('./core/export-markserv')(Markconf);
+if (CLI) {
+  module.exports.markserv = require('./core/initialize-markserv.js')(Markconf);
 }
