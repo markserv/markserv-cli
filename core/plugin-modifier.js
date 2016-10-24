@@ -15,25 +15,24 @@ const filterModulePkgMeta = pkg => {
   return meta;
 };
 
-const getModulePkg = modulePath => {
+const getModulePkg = ModifierModule => {
   let modulePkg;
+  let moduleDir = path.dirname(ModifierModule.id);
 
   try {
-    modulePkg = require(modulePath + '/package.json');
+    moduleDir = moduleDir.split('/mod')[0];
+    modulePkg = require(moduleDir + '/package.json');
   } catch (err) {
-    const paths = modulePath.split('/');
     modulePkg = {
-      name: paths[paths.length - 1]
+      name: ModifierModule.exports.name
     };
   }
 
   return modulePkg;
 };
 
-const buildModulePkgMeta = id => {
-  const modulePath = path.dirname(id).split('/mod')[0];
-  console.log(modulePath);
-  const modulePkgData = getModulePkg(modulePath);
+const buildModulePkgMeta = ModifierModule => {
+  const modulePkgData = getModulePkg(ModifierModule);
   const modulePkgMeta = filterModulePkgMeta(modulePkgData);
   return modulePkgMeta;
 };
@@ -42,16 +41,23 @@ const compileTemplate = templatePath => {
   return 'ZZZZZZZZZ+' + templatePath;
 };
 
-module.exports = (ModifierModule, initFunction) => {
+module.exports = (ModifierModule, modifierName, initFunction) => {
   let Markconf;
 
-  console.log('-------------------------------');
+  ModifierModule.exports.name = modifierName;
+
+  if (typeof modifierName === 'function') {
+    initFunction = modifierName;
+    ModifierModule.exports.name = 'Unnamed Modifier';
+  }
+
+  // console.log('-------------------------------');
 
   const configure = conf => {
     Markconf = conf;
   };
 
-  const meta = buildModulePkgMeta(ModifierModule.id);
+  const meta = buildModulePkgMeta(ModifierModule);
 
   const templatePath = meta.template;
 

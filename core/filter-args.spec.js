@@ -1,11 +1,11 @@
 const chaiAsPromised = require('chai-as-promised');
-const chai = require('chai').use(chaiAsPromised);
-
+const chai = require('chai');
 const help = require('./spec/helpers/load-helpers');
-
-// global.logger = help.logging;
-const expect = chai.expect;
 const filterArgs = require('./filter-args');
+
+global.log = help.logging;
+chai.use(chaiAsPromised);
+const expect = chai.expect;
 
 describe('filterArgs module:', () => {
   it('empty args should return an object', done => {

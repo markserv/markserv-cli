@@ -1,4 +1,4 @@
-global.logger.trace('CLI Mode = false (plugin mode)');
+global.log.trace('CLI Mode = false (plugin mode)');
 
 module.exports = {
   helpers: require('./helpers'),

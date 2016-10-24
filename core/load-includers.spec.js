@@ -1,10 +1,12 @@
 const chaiAsPromised = require('chai-as-promised');
-const chai = require('chai').use(chaiAsPromised);
-
-const expect = chai.expect;
-
+const chai = require('chai');
+const help = require('./spec/helpers/load-helpers');
 const loadIncludes = require('./load-includers');
-// global.logging =
+
+global.log = help.logging;
+
+chai.use(chaiAsPromised);
+const expect = chai.expect;
 
 loadIncludes.configure({
   path: process.cwd()

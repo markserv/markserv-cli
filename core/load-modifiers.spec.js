@@ -1,9 +1,12 @@
 const chaiAsPromised = require('chai-as-promised');
-const chai = require('chai').use(chaiAsPromised);
-
-const expect = chai.expect;
-
+const chai = require('chai');
+const help = require('./spec/helpers/load-helpers');
 const loadModifiers = require('./load-modifiers');
+
+global.log = help.logging;
+
+chai.use(chaiAsPromised);
+const expect = chai.expect;
 
 loadModifiers.configure({
   path: process.cwd()
@@ -13,14 +16,12 @@ beforeEach(() => {
   loadModifiers.clearStack();
 });
 
-describe('loadModifiers module', () => {
-  it('fails with empty handler conf', () => {
-    const emptyHandlersConf = {};
-    const result = loadModifiers.load(emptyHandlersConf);
-    const expected = [
-      'Err: No handlers provided'
-    ];
-    return expect(result).to.be.rejectedWith(expected);
+describe('loadModifiers module:', () => {
+  it('passes with empty core modifier conf', () => {
+    const emptyCoreModifierConf = {};
+    const result = loadModifiers.load(emptyCoreModifierConf);
+    const expected = null;
+    return expect(result).to.eventually.become(expected);
   });
 
   it('fails loading a non-existent module', () => {
@@ -35,7 +36,7 @@ describe('loadModifiers module', () => {
     return expect(result).to.be.rejectedWith(expected);
   });
 
-  it('modifiersmods loaded from node_modules should contain: configure, ??Markconf??, meta & httpResponseModifier', () => {
+  it('modifiers loaded from node_modules should contain: configure, ??Markconf??, meta & httpResponseModifier', () => {
     const modifiersConf = {
       markdown: 'markserv-mod-markdown'
     };
@@ -44,17 +45,8 @@ describe('loadModifiers module', () => {
       expect(modifierStack).to.eventually.have.deep.property('markdown.configure'),
       // expect(modifierStack).to.eventually.have.deep.property('markdown.Markconf'),
       expect(modifierStack).to.eventually.have.deep.property('markdown.meta'),
-      expect(modifierStack).to.eventually.have.deep.property('markdown.httpResponseModifier')
-    ]);
-  });
-
-  it('loads markserv-mod-dir modifier from: node_modules', () => {
-    const modifiersConf = {
-      dir: 'markserv-mod-dir'
-    };
-    const modifierStack = loadModifiers.load(modifiersConf);
-    return Promise.all([
-      expect(modifierStack).to.eventually.have.deep.property('dir.meta.name', 'markserv-mod-dir')
+      expect(modifierStack).to.eventually.have.deep.property('markdown.httpResponseModifier'),
+      expect(modifierStack).to.eventually.have.deep.property('markdown.meta.name', 'markserv-mod-markdown')
     ]);
   });
 
@@ -70,7 +62,7 @@ describe('loadModifiers module', () => {
     ]);
   });
 
-  it('loads handler processor from: local module script directory', () => {
+  it('loads modifier from: local module script directory', () => {
     const modifiersConf = {
       local: 'core/spec/mock/modules/markserv-mod-local'
     };
@@ -99,7 +91,7 @@ describe('loadModifiers module', () => {
     };
     const modifierStack = loadModifiers.load(modifiersConf);
     return Promise.all([
-      expect(modifierStack).to.eventually.have.deep.property('local.meta.name', 'index')
+      expect(modifierStack).to.eventually.have.deep.property('local.meta.name', 'markserv-mod-local')
     ]);
   });
 

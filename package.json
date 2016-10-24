@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "test": "xo && mocha core --recursive",
-    "watch-test": "mocha core --recursive --watch"
+    "test": "xo && mocha core/*.spec.js --recursive",
+    "watch-test": "mocha core/*.spec.js --recursive --watch"
   },
   "bin": {
     "markserv": "index.js"

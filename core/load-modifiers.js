@@ -65,8 +65,6 @@ const load = modifiers => {
     const modifierCount = countMembers(modifiers);
     const loadStack = [];
 
-    console.log(modifiers);
-
     if (modifierCount <= 0) {
       // No modifiers provided
       resolve(null);
@@ -97,14 +95,13 @@ const load = modifiers => {
 
           returnStack[moduleName] = activeModule;
           globalStack[moduleName] = activeModule;
-          console.log(moduleName, activeModule);
+          // console.log(moduleName, activeModule);
         }
       }
 
       resolve(returnStack);
     })
     .catch(err => {
-      console.error(err);
       return reject(['Err: Modifier could not be loaded'].concat(err));
     });
   });
