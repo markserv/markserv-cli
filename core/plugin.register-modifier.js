@@ -52,7 +52,12 @@ module.exports = (ModifierModule, initFunction, name) => {
   };
 
   const meta = buildModulePkgMeta(ModifierModule);
-  name = meta.name || name;
+
+  if (meta.name) {
+    name = meta.name;
+  } else if (name) {
+    meta.name = name;
+  }
 
   // if (!name) {
   //   name = 'Unnamed module';

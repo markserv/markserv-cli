@@ -6,7 +6,7 @@ const filterArgs = require('./init.args');
 chai.use(chaiAsPromised);
 const expect = chai.expect;
 
-describe('filterArgs module:', () => {
+describe('init.args module:', () => {
   it('empty args should return an object', done => {
     const emptyArgs = [];
     const args = filterArgs.parse(emptyArgs);
@@ -14,7 +14,7 @@ describe('filterArgs module:', () => {
     done();
   });
 
-  it('empty filtered args should contain real dir', done => {
+  it('args should contain real dir', done => {
     const emptyArgs = [];
     const args = filterArgs.parse(emptyArgs);
     expect(args.dir).is.a('string');
@@ -23,7 +23,7 @@ describe('filterArgs module:', () => {
     done();
   });
 
-  it('empty filtered args should contain real conf file', done => {
+  it('args should contain real conf file', done => {
     const emptyArgs = [];
     const args = filterArgs.parse(emptyArgs);
     expect(args.conf).is.a('string');

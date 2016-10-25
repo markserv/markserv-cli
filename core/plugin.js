@@ -7,10 +7,12 @@ module.exports = (name, callback) => {
 
   if (typeof name === 'function') {
     callback = name;
-    return plugin(_module, callback);
+    plugin(_module, callback);
+    return;
   }
 
   if (typeof name === 'string' && typeof callback === 'function') {
-    return plugin(_module, callback, name);
+    plugin(_module, callback, name);
+    return;
   }
 };
