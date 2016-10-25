@@ -1,7 +1,7 @@
 const chaiAsPromised = require('chai-as-promised');
 const chai = require('chai');
 const help = require('./spec/helpers/load-helpers');
-const loadModifiers = require('./load-modifiers');
+const loadModifiers = require('./plugin.load-modifiers');
 
 global.log = help.logging;
 

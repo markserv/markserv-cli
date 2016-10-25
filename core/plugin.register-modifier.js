@@ -51,8 +51,6 @@ module.exports = (ModifierModule, modifierName, initFunction) => {
     ModifierModule.exports.name = 'Unnamed Modifier';
   }
 
-  // console.log('-------------------------------');
-
   const configure = conf => {
     Markconf = conf;
   };
@@ -69,18 +67,18 @@ module.exports = (ModifierModule, modifierName, initFunction) => {
 
   const loadModifier = () => {};
 
-  const httpResponseModifier = initFunction(Markconf, template);
-
-  ModifierModule.exports = {
+  const exports = {
     configure,
     Markconf,
     meta,
     template,
     templatePath,
     loadTemplate,
-    loadModifier,
-    httpResponseModifier
+    loadModifier
   };
 
-  // const loadTemplate = () => {};
+  const httpResponseModifier = initFunction(exports);
+  ModifierModule.exports.httpResponseModifier = httpResponseModifier;
+
+  return ModifierModule;
 };

@@ -2,11 +2,11 @@ const path = require('path');
 
 const Promise = require('bluebird');
 
-const loadIncluders = require(path.join(__dirname, 'load-includers'));
-const loadModifiers = require(path.join(__dirname, 'load-modifiers'));
+const loadIncluders = require(path.join(__dirname, 'plugin.load-includers'));
+const loadModifiers = require(path.join(__dirname, 'plugin.load-modifiers'));
 // const loadTemplates = require(path.join(__dirname, 'load-templates'));
-const httpServer = require(path.join(__dirname, 'http-server'));
-const httpRequestHandler = require(path.join(__dirname, 'http-request-handler'));
+const httpServer = require(path.join(__dirname, 'http.server'));
+const httpRequestHandler = require(path.join(__dirname, 'http.request-handler'));
 
 let Markconf;
 

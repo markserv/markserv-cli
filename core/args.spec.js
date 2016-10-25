@@ -1,7 +1,7 @@
 const chaiAsPromised = require('chai-as-promised');
 const chai = require('chai');
 const help = require('./spec/helpers/load-helpers');
-const filterArgs = require('./filter-args');
+const filterArgs = require('./args');
 
 global.log = help.logging;
 chai.use(chaiAsPromised);

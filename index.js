@@ -1,16 +1,16 @@
 #!/usr/bin/env node
 
 // Global Logging to Console & File
-global.log = require('./core/logging');
+global.log = require('./core/logger');
 
 // Prepare args for Markserv Configuration (Markconf)
-const args = require('./core/filter-args').parse(process.argv);
+const args = require('./core/args').parse(process.argv);
 
 // Initialize Markconf to be consumed by Markserv
 const Markconf = require('./core/markconf').initialize(args);
 
 // Export the plugin loader as callback fn 'Markserv()'
-module.exports = require('./core/plugin-loader');
+module.exports = require('./core/plugin');
 
 // Markserv being called from CLI? (Ie: not from a Plugin)
 const CLI = !module.parent;
@@ -26,5 +26,5 @@ if (CLI) {
   module.exports.markserv = markserv;
 
   // Export helpers for runtime use in Plugins
-  module.exports.helpers = require('./core/helpers');
+  require('./core/helper')(Markconf);
 }
