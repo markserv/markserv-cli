@@ -29,11 +29,6 @@ const initialize = args => {
     serverRoot: args.dir
   };
 
-  // console.log(args.defaults);
-
-  // // if (MarkconfDefinition.defaults) {
-  // // }
-
   // Combine objects to create Markconf
   const initialized = Object.assign(
     // CLI Args
