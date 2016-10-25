@@ -6,7 +6,7 @@ const initialize = args => {
 
   const MarkconfPath = path.resolve(args.dir);
   const MarkconfDefinition = require(args.conf);
-  const DefaultsDefinition = require(args.defaults);
+  const DefaultsDefinition = {defaults: require(args.defaults)};
 
   const Runtime = {
 
