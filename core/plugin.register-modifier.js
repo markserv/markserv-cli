@@ -1,4 +1,5 @@
 const path = require('path');
+const log = require('./init.logger');
 
 const filterModulePkgMeta = pkg => {
   const meta = {
@@ -41,21 +42,24 @@ const compileTemplate = templatePath => {
   return 'ZZZZZZZZZ+' + templatePath;
 };
 
-module.exports = (ModifierModule, modifierName, initFunction) => {
+module.exports = (ModifierModule, initFunction, name) => {
+  log.trace('Registering modifier: ' + ModifierModule.id);
+
   let Markconf;
-
-  ModifierModule.exports.name = modifierName;
-
-  if (typeof modifierName === 'function') {
-    initFunction = modifierName;
-    ModifierModule.exports.name = 'Unnamed Modifier';
-  }
 
   const configure = conf => {
     Markconf = conf;
   };
 
   const meta = buildModulePkgMeta(ModifierModule);
+  name = meta.name || name;
+
+  // if (!name) {
+  //   name = 'Unnamed module';
+  //   meta.name = 'Unnamed module';
+  //   console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa');
+  //   log.error('An unnamed module was registered: ' + ModifierModule.id);
+  // }
 
   const templatePath = meta.template;
 
@@ -68,6 +72,7 @@ module.exports = (ModifierModule, modifierName, initFunction) => {
   const loadModifier = () => {};
 
   const exports = {
+    name,
     configure,
     Markconf,
     meta,
@@ -78,6 +83,7 @@ module.exports = (ModifierModule, modifierName, initFunction) => {
   };
 
   const httpResponseModifier = initFunction(exports);
+  ModifierModule.exports = exports;
   ModifierModule.exports.httpResponseModifier = httpResponseModifier;
 
   return ModifierModule;

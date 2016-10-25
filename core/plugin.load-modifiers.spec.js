@@ -38,6 +38,10 @@ describe('loadModifiers module:', () => {
     const modifiersConf = {
       markdown: 'markserv-mod-markdown'
     };
+    // // Test return
+    // loadModifiers.load(modifiersConf).then(data => {
+    //   console.log(data);
+    // });
     const modifierStack = loadModifiers.load(modifiersConf);
     return Promise.all([
       expect(modifierStack).to.eventually.have.deep.property('markdown.configure'),
@@ -64,6 +68,10 @@ describe('loadModifiers module:', () => {
     const modifiersConf = {
       local: 'core/spec/mock/modules/markserv-mod-local'
     };
+    // // Test return
+    // loadModifiers.load(modifiersConf).then(data => {
+    //   console.log(data);
+    // });
     const modifierStack = loadModifiers.load(modifiersConf);
     return Promise.all([
       expect(modifierStack).to.eventually.have.deep.property('local.meta.name', 'markserv-mod-local')

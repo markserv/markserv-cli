@@ -1,6 +1,6 @@
 const chaiAsPromised = require('chai-as-promised');
 const chai = require('chai').use(chaiAsPromised);
-const help = require('./spec/helpers/load-helpers');
+// const help = require('./spec/helpers/load-helpers');
 const markserv = require('./markserv.js');
 
 const expect = chai.expect;

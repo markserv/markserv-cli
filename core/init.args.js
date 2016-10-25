@@ -1,5 +1,6 @@
 const path = require('path');
 const pkg = require('../package.json');
+const log = require('./init.logger');
 
 const cwd = process.cwd();
 const configFilepath = path.join(cwd, pkg.settings.configFilename);
@@ -52,6 +53,7 @@ const parse = args => {
   }
 
   const filteredArgs = filter(parsed);
+  log.setLevel(filteredArgs.loglevel);
 
   return filteredArgs;
 };

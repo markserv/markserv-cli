@@ -1,11 +1,11 @@
-const Markserv = require('../../../../../index');
+const markserv = require('../../../../../index');
 
-Markserv.plugin.modifier(module, 'markserv-mod-local', (Markconf, template) => {
+markserv('markserv-mod-local', () => {
   return requestPath => {
     return new Promise(resolve => {
-      if (!Markconf || !template) {
+      // if (!Markconf || !template) {
         // reject('Err: No request path');
-      }
+      // }
 
       const result = requestPath;
 
