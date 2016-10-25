@@ -1,28 +1,5 @@
 const path = require('path');
 
-const getCaller = () => {
-  const getStack = () => {
-    const origPrepareStackTrace = Error.prepareStackTrace;
-
-    Error.prepareStackTrace = function (_, stack) {
-      return stack;
-    };
-
-    const err = new Error();
-    const stack = err.stack;
-    Error.prepareStackTrace = origPrepareStackTrace;
-
-    stack.shift();
-
-    return stack;
-  };
-
-  const stack = getStack();
-  stack.shift();
-  stack.shift();
-  return stack[1].receiver;
-};
-
 const filterModulePkgMeta = pkg => {
   const meta = {
     name: pkg.name,

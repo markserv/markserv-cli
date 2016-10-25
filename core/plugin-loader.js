@@ -1,3 +1,4 @@
+const path = require('path');
 const callerId = require('caller-id');
 const plugin = require('./plugin-modifier');
 
