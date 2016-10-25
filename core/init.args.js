@@ -1,36 +1,58 @@
-const Command = require('commander').Command;
-
-const program = new Command(process.argv);
+const path = require('path');
 const pkg = require('../package.json');
 
-const configFilename = pkg.settings.configFilename;
-const defaultsFilename = pkg.settings.defaultsFilename;
 const cwd = process.cwd();
+const configFilepath = path.join(cwd, pkg.settings.configFilename);
+const defaultsFilepath = path.join(cwd, pkg.settings.defaultsFilename);
 
-program
-  .version('0.0.1')
-  .option('-d, --dir', 'Directory to serve from.', './')
-  .option('-p, --port [type]', 'Port to serve on [port]', 8080)
-  .option('-a, --address [type]', 'IP sddress to serve on [address]', 'localhost')
-  .option('-c, --conf [type]', 'Markconf.js file to use.')
-  .option('-l, --loglevel [type]', 'TRACE, DEBUG, INFO, WARN, ERROR, FATAL [loglevel]', 'WARN');
+const setup = options => {
+  const Command = require('commander').Command;
+  const program = new Command(process.argv);
+  program.version(pkg.version);
 
+  for (const name in options) {
+    if ({}.hasOwnProperty.call(options, name)) {
+      const option = options[name];
+      const flag = option.flag + ' --' + name + ' [type]';
+      program.option(flag, option.help, option.value);
+    }
+  }
+
+  return program;
+};
+
+// Only these args will fall through to the Markconf object
 const filter = parsed => {
   const filteredArgs = {
     dir: parsed.dir || cwd,
-    conf: parsed.conf || cwd + '/' + configFilename,
+    conf: parsed.conf || configFilepath,
     port: parsed.port,
     address: parsed.address,
     loglevel: parsed.loglevel,
-    defaults: cwd + '/' + defaultsFilename
+    defaults: path.resolve(parsed.defaults)
   };
 
   return filteredArgs;
 };
 
+const parseDefaultOptions = (file, args) => {
+  const defaults = require(file);
+  const program = setup(defaults.options);
+  const parsed = program.parse(args || process.args);
+  return parsed;
+};
+
 const parse = args => {
-  const parsed = program.parse(args || process.argv);
+  let parsed = parseDefaultOptions(defaultsFilepath, args);
+
+  // If CLI user overrides Markconf.Defaults.js file
+  if (path.resolve(parsed.defaults) !== path.resolve(defaultsFilepath)) {
+    // Reload and re-parse the defaults
+    parsed = parseDefaultOptions(defaultsFilepath, args);
+  }
+
   const filteredArgs = filter(parsed);
+
   return filteredArgs;
 };
 
