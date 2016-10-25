@@ -3,8 +3,6 @@ const chai = require('chai');
 const help = require('./spec/helpers/load-helpers');
 const loadIncludes = require('./plugin.load-includers');
 
-global.log = help.logging;
-
 chai.use(chaiAsPromised);
 const expect = chai.expect;
 

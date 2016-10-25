@@ -3,10 +3,7 @@ const chai = require('chai').use(chaiAsPromised);
 const help = require('./spec/helpers/load-helpers');
 const markserv = require('./markserv.js');
 
-global.log = help.logging;
-
 const expect = chai.expect;
-global.log = help.logging;
 
 // beforeEach(() => {
 //   loadHandlers.clearStack();
@@ -22,7 +19,7 @@ describe('markserv main module', () => {
       defaults: cwd + '/Markconf.Defaults.js'
     };
 
-    const Markconf = require('./markconf').initialize(mockArgs);
+    const Markconf = require('./init.markconf').initialize(mockArgs);
 
     const result = markserv.initialize(Markconf);
 

@@ -1,7 +1,8 @@
 const path = require('path');
+const log = require('./init.logger');
 
 const initialize = args => {
-  global.log.setLevel(args.loglevel);
+  log.setLevel(args.loglevel);
 
   const MarkconfPath = path.resolve(args.dir);
   const MarkconfDefinition = require(args.conf);
