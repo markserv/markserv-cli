@@ -1,7 +1,7 @@
 const Markconf = {
   title: 'Markconf Example',
 
-  serverRoot: 'some-pre-defined-path',
+  // serverRoot: 'some-pre-defined-path',
 
   // defaults: {
   //   fileTypes: {
