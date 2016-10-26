@@ -20,7 +20,9 @@
     "commander": "^2.9.0",
     "connect": "^3.5.0",
     "console.colors": "^1.0.2",
-    "log4js": "^0.6.38"
+    "death": "^1.0.0",
+    "log4js": "^0.6.38",
+    "sigint": "^1.0.0"
   },
   "settings": {
     "configFilename": "Markconf.js",
@@ -43,7 +45,8 @@
     "rules": {
       "import/no-dynamic-require": 0,
       "no-multi-str": 0,
-      "no-use-extend-native": 0
+      "no-use-extend-native": 0,
+      "no-process-exit": false
     },
     "overrides": [
       {

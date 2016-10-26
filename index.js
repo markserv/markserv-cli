@@ -25,3 +25,6 @@ if (CLI) {
   // Export helpers for runtime use in Plugins
   require('./lib/core.help')(Markconf);
 }
+
+// Friendly termination on Ctrl + C
+const sigint = require('./lib/core.sigint')(process);
