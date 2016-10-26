@@ -1,6 +1,6 @@
 const path = require('path');
 const pkg = require('../package.json');
-const log = require('./logger');
+const log = require('./core.logger');
 
 const cwd = process.cwd();
 const configFilepath = path.join(cwd, pkg.settings.configFilename);

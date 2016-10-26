@@ -7,13 +7,13 @@ const args = require('./core/init.args').parse(process.argv);
 const Markconf = require('./core/init.markconf').initialize(args);
 
 // Export the plugin loader as callback fn 'Markserv()'
-module.exports = require('./core/plugin');
+module.exports = require('./core/core.plugin');
 
 // Markserv being called from CLI? (Ie: not from a Plugin)
 const CLI = !module.parent;
 
 if (CLI) {
-  const markserv = require('./core/markserv');
+  const markserv = require('./core/core.markserv');
 
   // Inititalize & Start Markserv
   markserv.initialize(Markconf)
@@ -23,5 +23,5 @@ if (CLI) {
   module.exports.markserv = markserv;
 
   // Export helpers for runtime use in Plugins
-  require('./core/help')(Markconf);
+  require('./core/core.help')(Markconf);
 }

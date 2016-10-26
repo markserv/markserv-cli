@@ -1,10 +1,12 @@
 // const fs = require('fs');
 const path = require('path');
 // const minimatch = require('minimatch');
+const log = require('./core.logger');
 
 let Markconf;
 
 const configure = conf => {
+  log.trace('Received new configuration.');
   Markconf = conf;
   return Markconf;
 };

@@ -1,5 +1,6 @@
 const path = require('path');
-const log = require('./logger');
+const fs = require('./help.fs');
+const log = require('./core.logger');
 
 const filterModulePkgMeta = pkg => {
   const meta = {
@@ -39,6 +40,7 @@ const buildModulePkgMeta = ModifierModule => {
 };
 
 const compileTemplate = templatePath => {
+  // fs.readFile(templatePath);
   return 'ZZZZZZZZZ+' + templatePath;
 };
 
@@ -58,13 +60,6 @@ module.exports = (ModifierModule, initFunction, name) => {
   } else if (name) {
     meta.name = name;
   }
-
-  // if (!name) {
-  //   name = 'Unnamed module';
-  //   meta.name = 'Unnamed module';
-  //   console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa');
-  //   log.error('An unnamed module was registered: ' + ModifierModule.id);
-  // }
 
   const templatePath = meta.template;
 
