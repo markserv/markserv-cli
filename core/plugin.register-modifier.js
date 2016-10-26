@@ -1,5 +1,5 @@
 const path = require('path');
-const log = require('./init.logger');
+const log = require('./logger');
 
 const filterModulePkgMeta = pkg => {
   const meta = {
