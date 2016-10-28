@@ -28,9 +28,9 @@ module.exports = {
       value: 'localhost',
       flag: '-a'
     },
-    markconf: {
+    conf: {
       help: 'Markconf.js file to use [Markconf]',
-      value: './Markconf.js',
+      value: './',
       flag: '-m'
     },
     defaults: {

@@ -1,15 +1,20 @@
 #!/usr/bin/env node
 
+// Prepare args for Markserv Configuration (Markconf)
+const args = require('./lib/init.args').parse(process.argv);
+console.log(args);
+
 const confResolver = require('./lib/conf-resolver');
 
-const markservModifiers = confResolver.resolveMarkconf();
+const Markconf = confResolver.resolveMarkconf(args.conf);
+console.log(Markconf);
 
-console.log(markservModifiers);
+// module.exports = {
+//   app: Markconf,
+//   plugin: require('./lib/core.plugin')
+// };
 
 // console.log(Markconf);
-
-// // Prepare args for Markserv Configuration (Markconf)
-// const args = require('./lib/init.args').parse(process.argv);
 
 // // Initialize Markconf to be consumed by Markserv
 // const Markconf = require('./lib/init.markconf').initialize(args);
