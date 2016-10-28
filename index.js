@@ -2,7 +2,9 @@
 
 const confResolver = require('./lib/conf-resolver');
 
-const Markconf = confResolver.resolveMarkconf();
+const markservModifiers = confResolver.resolveMarkconf();
+
+console.log(markservModifiers);
 
 // console.log(Markconf);
 
