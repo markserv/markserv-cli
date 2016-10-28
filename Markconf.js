@@ -21,16 +21,17 @@ const Markconf = {
 
   // File includers
   includers: {
-    html: 'markserv-inc-html',
-    markdown: 'markserv-inc-markdown',
-    less: 'markserv-inc-less'
+    // html: 'markserv-contrib-inc.html',
+    // markdown: 'markserv-contrib-inc.markdown',
+    // less: 'markserv-contrib-inc.less'
   },
 
   // HTTP Response Modifiers
   modifiers: {
     core: {
-      // directory: 'markserv-mod-dir',
-      markdown: 'markserv-mod-markdown'
+      // directory: 'markserv-contib-mod.dir',
+      markdown: 'markserv-contrib-app.github'
+      // markdown: 'markserv-contrib-mod.markdown'
       // http404: 'markserv-mod-http-404',
       // file: 'markserv-mod-file'
     },

@@ -1,30 +1,21 @@
 #!/usr/bin/env node
 
-// Prepare args for Markserv Configuration (Markconf)
-const args = require('./lib/init.args').parse(process.argv);
+const confResolver = require('./lib/conf-resolver');
 
-// Initialize Markconf to be consumed by Markserv
-const Markconf = require('./lib/init.markconf').initialize(args);
+const Markconf = confResolver.resolveMarkconf();
 
-// Export the plugin loader as callback fn 'Markserv()'
-module.exports = require('./lib/core.plugin');
+// console.log(Markconf);
 
-// Markserv being called from CLI? (Ie: not from a Plugin)
-const CLI = !module.parent;
+// // Prepare args for Markserv Configuration (Markconf)
+// const args = require('./lib/init.args').parse(process.argv);
 
-if (CLI) {
-  const markserv = require('./lib/core.markserv');
+// // Initialize Markconf to be consumed by Markserv
+// const Markconf = require('./lib/init.markconf').initialize(args);
 
-  // Inititalize & Start Markserv
-  markserv.initialize(Markconf)
-    .then(markserv.start);
+// // Markserv main service
+// const Markserv = require('./lib/core.markserv');
 
-  // Export Markserv service for 3rd-party control, Eg: Grunt, other Node app
-  module.exports.markserv = markserv;
+// Markserv.spawnService(Markconf);
 
-  // Export helpers for runtime use in Plugins
-  require('./lib/core.help')(Markconf);
-}
-
-// Friendly termination on Ctrl + C
-const sigint = require('./lib/core.sigint')(process);
+// // Start Markserv service
+// module.exports = Markserv;
