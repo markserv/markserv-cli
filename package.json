@@ -30,10 +30,11 @@
     "defaultsFilename": "Markconf.Defaults.js"
   },
   "devDependencies": {
-    "xo": "^0.17.0",
     "chai": "^3.5.0",
     "chai-as-promised": "^6.0.0",
-    "mocha": "^3.1.0"
+    "grunt": "^1.0.1",
+    "mocha": "^3.1.0",
+    "xo": "^0.17.0"
   },
   "xo": {
     "esnext": true,
