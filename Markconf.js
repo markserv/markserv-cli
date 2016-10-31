@@ -29,7 +29,7 @@ const Markconf = {
   // HTTP Response Modifiers
   modifiers: {
     core: {
-      // directory: 'markserv-contrib-mod.dir',
+      directory: 'markserv-contrib-mod.dir',
       // markdown: 'markserv-contrib-app.github',
       markdown: 'markserv-contrib-mod.markdown'
       // http404: 'test/faux-mod'
