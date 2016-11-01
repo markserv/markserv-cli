@@ -26,24 +26,7 @@ const Markconf = {
     // less: 'markserv-contrib-inc.less'
   },
 
-  // HTTP Response Modifiers
-  modifiers: {
-    core: 'markserv-contrib-app.github'
-    // core: {
-    //   directory: 'markserv-contrib-mod.dir',
-    //   markdown: 'markserv-contrib-mod.markdown',
-    //   http404: 'markserv-contrib-mod.http-404',
-    //   file: 'markserv-contrib-mod.file'
-    // }
-
-    // path: {
-    //   // 'tests/posts/**/*.md': 'markserv-mod-post'
-    // }
-  },
-
-  rewrites: {
-    'test/redirect-a/**/*': 'test/redirect-b/**/*'
-  }
+  modifiers: 'markserv-contrib-app.github'
 };
 
 module.exports = Markconf;
