@@ -12,6 +12,7 @@ module.exports = Markserv;
 // if (CLI) {
 const args = require('./lib/init.args').parse(process.argv);
 const plugins = require('./lib/plugin-resolver')(args.conf);
+
 const Markconf = require('./lib/init.markconf').initialize(args, plugins);
 Markserv.spawnService(Markconf);
 // }

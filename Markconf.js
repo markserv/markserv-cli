@@ -26,20 +26,30 @@ const Markconf = {
   //   // less: 'markserv-contrib-inc.less'
   // },
 
-  // HTTP Response Modifiers
-  modifiers: {
-    core: 'markserv-contrib-app.github'
-    // core: {
-    //   directory: 'markserv-contrib-mod.dir',
-    //   markdown: 'markserv-contrib-mod.markdown',
-    //   http404: 'markserv-contrib-mod.http-404',
-    //   file: 'markserv-contrib-mod.file'
-    // }
+  modifiers: 'markserv-contrib-app.github'
 
-    // path: {
-    //   // 'tests/posts/**/*.md': 'markserv-mod-post'
-    // }
-  },
+  // HTTP Response Modifiers
+  // modifiers: {
+  //   core: 'markserv-contrib-app.github'
+
+  //   // core: {
+  //   //   directory: 'markserv-contrib-mod.dir',
+  //   //   markdown: 'markserv-contrib-mod.markdown',
+  //   //   http404: 'markserv-contrib-mod.http-404',
+  //   //   file: 'markserv-contrib-mod.file'
+  //   // }
+
+  //   // core: {
+  //   //   directory: 'markserv-contrib-app.github',
+  //   //   markdown: 'markserv-contrib-mod.github',
+  //   //   http404: 'markserv-contrib-mod.github',
+  //   //   file: 'markserv-contrib-mod.github'
+  //   // }
+
+  //   // path: {
+  //   //   // 'tests/posts/**/*.md': 'markserv-mod-post'
+  //   // }
+  // },
 
   // rewrites: {
   //   'test/redirect-a/**/*': 'test/redirect-b/**/*'
