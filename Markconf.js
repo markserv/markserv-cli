@@ -33,9 +33,9 @@ const Markconf = {
 
     core: {
       directory: 'markserv-contrib-mod.dir',
-      // markdown: 'markserv-contrib-mod.markdown',
-      // http404: 'markserv-contrib-mod.http-404',
-      // file: 'markserv-contrib-mod.file'
+      markdown: 'markserv-contrib-mod.markdown',
+      http404: 'markserv-contrib-mod.http-404',
+      file: 'markserv-contrib-mod.file'
     }
 
   //   // core: {
