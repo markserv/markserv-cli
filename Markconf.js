@@ -31,8 +31,9 @@ const Markconf = {
   modifiers: {
     '**/': 'markserv-contrib-mod.dir',
     '**/*.md': 'markserv-contrib-mod.markdown',
-    '**/*.*': 'markserv-contrib-mod.file',
-    // 404: 'markserv-contrib-mod.http-404'
+    '**/*': 'markserv-contrib-mod.file',
+    // '{**/.*,**/*}': 'markserv-contrib-mod.file',
+    404: 'markserv-contrib-mod.http-404'
   }
 
     // core: 'markserv-contrib-app.github'
