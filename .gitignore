@@ -38,3 +38,6 @@ jspm_packages
 
 # Markserv log
 Markserv.log
+
+# Temporary files
+tmp/
