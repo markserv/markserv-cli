@@ -23,6 +23,7 @@
     "connect": "^3.5.0",
     "console.colors": "^1.0.2",
     "death": "^1.0.0",
+    "deep-equal": "^1.0.1",
     "log4js": "^0.6.38",
     "minimatch": "^3.0.3",
     "require.async": "^0.1.1",
