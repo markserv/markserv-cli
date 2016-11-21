@@ -9,32 +9,30 @@ const argv = [null, null,
   '-l', 'OFF'
 ];
 
-describe('Markconf with modifier array containing strings', () => {
-  const markserv = require('app/markserv.js')(argv);
-  // console.log(markserv);
-  // console.log(markserv.Markconf.plugins.modifiers);
+describe('Markconf with modifier array containing single string', () => {
+  it('should initialize with 1 modifier', done => {
+    const markserv = require('app/markserv.js')(argv);
+    // console.log(markserv);
 
-  it('should initialize', () => {
+    // should initialize
     expect(markserv.isInitialized).to.be.a('boolean');
     expect(markserv.isInitialized).to.equal(true);
-  });
 
-  it('should have plugins modifiers object', () => {
+   // should have plugins modifiers object'
     expect(markserv.Markconf).to.be.an('object');
     expect(markserv.Markconf.plugins).to.be.an('object');
     expect(markserv.Markconf.plugins.modifiers).to.be.an('object');
-  });
 
-  it('should have a modifiers pattern array', () => {
+    // should have a modifiers pattern array
     expect(markserv.Markconf.plugins.modifiers['**/*.*']).to.be.an('array');
     expect(markserv.Markconf.plugins.modifiers['**/*.*'].length).to.be.greaterThan(0);
-  });
 
-  it('should load the modifier: `markserv-contrib-mod.file`', () => {
+    // should load the modifier: `markserv-contrib-mod.file`
     const fileModifier = markserv.Markconf.plugins.modifiers['**/*.*'][0];
     expect(fileModifier.name).to.equal('markserv-contrib-mod.file');
     expect(fileModifier.httpResponseModifier).to.be.a('function');
-  });
 
-  markserv.kill();
+    markserv.kill();
+    done();
+  });
 });
