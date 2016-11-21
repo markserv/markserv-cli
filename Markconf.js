@@ -19,9 +19,11 @@ const Markconf = {
   //   paths: true
   // },
 
-  // // File includers
+  // File includers
+  // includers: 'markserv-contrib-app.github',
+
   // includers: {
-  //   // html: 'markserv-contrib-inc.html',
+    // html: 'markserv-contrib-inc.html',
   //   // markdown: 'markserv-contrib-inc.markdown',
   //   // less: 'markserv-contrib-inc.less'
   // },
@@ -29,10 +31,17 @@ const Markconf = {
   // HTTP Response Modifiers
   modifiers: 'markserv-contrib-app.github'
   // modifiers: {
-  //   '**/': 'markserv-contrib-mod.dir',
-  //   '**/*.md': 'markserv-contrib-mod.markdown',
-  //   '**/*': 'markserv-contrib-mod.file',
-  //   404: 'markserv-contrib-mod.http-404'
+    // '**/': [
+      // 'markserv-contrib-mod.dir',
+      // 'markserv-contrib-mod.foo',
+      // {'markserv-contrib-mod.dir': 'node_modules/markserv-contrib-mod.dir/lib/mod.dir.html'},
+    //   {'markserv-contrib-mod.foo': 'partials/directory.html'}
+    // ],
+    // '**/': 'markserv-contrib-mod.dir',
+    // '**/': 'markserv-contrib-app.github',
+    // '**/*.md': 'markserv-contrib-mod.markdown',
+    // '**/*': 'markserv-contrib-mod.file',
+    // 404: 'markserv-contrib-mod.http-404'
   // }
 
     // core: 'markserv-contrib-app.github'
