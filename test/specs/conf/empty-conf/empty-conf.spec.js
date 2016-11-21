@@ -14,7 +14,9 @@ chai.use(chaiAsPromised);
 //   loadIncludes.clearStack();
 // });
 
-// const markserv = require('app/markserv.js');
+const markserv = require('app/index.js');
+
+console.log(markserv);
 
 // describe('empty conf module', () => {
 //   it('fails', () => {

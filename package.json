@@ -2,12 +2,12 @@
   "name": "markserv-cli",
   "version": "1.0.3",
   "description": "Markserv - realtime Markdown server.",
-  "main": "index.js",
+  "main": "lib/index.js",
   "bin": {
-    "markserv": "index.js"
+    "markserv": "lib/index.js"
   },
   "scripts": {
-    "start": "node index.js",
+    "start": "node lib/index.js",
     "test": "xo && mocha test/specs/**/*.spec.js --recursive",
     "watch-test": "mocha test/specs/**/*.spec.js --recursive --watch"
   },
@@ -47,9 +47,11 @@
       "beforeEach"
     ],
     "rules": {
+      "import/no-extraneous-dependencies": 0,
       "import/no-dynamic-require": 0,
-      "no-multi-str": 0,
-      "no-use-extend-native": 0
+      "import/no-unresolved": 0,
+      "no-use-extend-native": 0,
+      "no-multi-str": 0
     },
     "overrides": [
       {
