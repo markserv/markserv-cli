@@ -4,7 +4,9 @@ const expect = chai.expect;
 
 const argv = [null, null,
   // Use the Markconf file from this spec directory
-  '-c', __dirname
+  '-c', __dirname,
+  // Turn off the logger
+  '-l', 'OFF'
 ];
 
 describe('empty Markconf', () => {
