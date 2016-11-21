@@ -22,10 +22,12 @@
     "connect": "^3.5.0",
     "console.colors": "^1.0.2",
     "death": "^1.0.0",
+    "http-shutdown": "^1.1.0",
     "log4js": "^0.6.38",
     "minimatch": "^3.0.3",
     "require.async": "^0.1.1",
-    "sigint": "^1.0.0"
+    "sigint": "^1.0.0",
+    "http-shutdown": "^1.1.0"
   },
   "settings": {
     "configFilename": "Markconf.js",
@@ -44,7 +46,10 @@
     "globals": [
       "it",
       "describe",
-      "beforeEach"
+      "beforeEach",
+      "before",
+      "after",
+      "afterEach"
     ],
     "rules": {
       "import/no-extraneous-dependencies": 0,

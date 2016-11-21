@@ -14,5 +14,6 @@ describe('non-empty Markconf', () => {
     const markserv = require('app/markserv.js')(argv);
     expect(markserv.isInitialized).to.be.a('boolean');
     expect(markserv.isInitialized).to.equal(true);
+    markserv.kill();
   });
 });

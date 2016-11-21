@@ -27,12 +27,18 @@ describe('Markconf with modifier array containing strings', () => {
 
   it('should have a modifiers pattern array', () => {
     expect(markserv.Markconf.plugins.modifiers['**/*.*']).to.be.an('array');
-    expect(markserv.Markconf.plugins.modifiers['**/*.*'].length).to.be.greaterThan(0);
+    expect(markserv.Markconf.plugins.modifiers['**/*.*'].length).to.be.greaterThan(1);
   });
 
   it('should load the modifier: `markserv-contrib-mod.file`', () => {
     const fileModifier = markserv.Markconf.plugins.modifiers['**/*.*'][0];
     expect(fileModifier.name).to.equal('markserv-contrib-mod.file');
+    expect(fileModifier.httpResponseModifier).to.be.a('function');
+  });
+
+  it('should load the modifier: `markserv-contrib-mod.dir`', () => {
+    const fileModifier = markserv.Markconf.plugins.modifiers['**/*.*'][1];
+    expect(fileModifier.name).to.equal('markserv-contrib-mod.dir');
     expect(fileModifier.httpResponseModifier).to.be.a('function');
   });
 
