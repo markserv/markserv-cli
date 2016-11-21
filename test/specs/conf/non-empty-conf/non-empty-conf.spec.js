@@ -7,10 +7,13 @@ const argv = [null, null,
   '-c', __dirname
 ];
 
-describe('empty Markconf', () => {
-  it('should fail to initialize', () => {
+describe('non-empty Markconf', () => {
+  it('should initialize', () => {
     const markserv = require('app/markserv.js')(argv);
+
+    console.log(markserv);
+
     expect(markserv.isInitialized).to.be.a('boolean');
-    expect(markserv.isInitialized).to.equal(false);
+    expect(markserv.isInitialized).to.equal(true);
   });
 });
