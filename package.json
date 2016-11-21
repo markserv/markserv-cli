@@ -2,12 +2,12 @@
   "name": "markserv-cli",
   "version": "1.0.3",
   "description": "Markserv - realtime Markdown server.",
-  "main": "lib/index.js",
+  "main": "lib/markserv.js",
   "bin": {
-    "markserv": "lib/index.js"
+    "markserv": "lib/markserv.js"
   },
   "scripts": {
-    "start": "node lib/index.js",
+    "start": "node lib/markserv.js",
     "test": "xo && mocha test/specs/**/*.spec.js --recursive",
     "watch-test": "mocha test/specs/**/*.spec.js --recursive --watch"
   },

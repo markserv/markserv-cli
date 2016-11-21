@@ -31,7 +31,7 @@ module.exports = {
     conf: {
       help: 'Markconf.js file to use [Markconf]',
       value: './',
-      flag: '-m'
+      flag: '-c'
     },
     defaults: {
       help: 'Markconf.Defaults.js file to use [defaults]',

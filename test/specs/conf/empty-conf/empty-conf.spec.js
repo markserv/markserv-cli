@@ -1,25 +1,16 @@
-const chaiAsPromised = require('chai-as-promised');
 const chai = require('chai');
-// const help = require('./spec/helpers/load-helpers');
-// const loadIncludes = require('./plugin.load-includers');
 
-chai.use(chaiAsPromised);
-// const expect = chai.expect;
+const expect = chai.expect;
 
-// loadIncludes.configure({
-//   path: process.cwd()
-// });
+const argv = [null, null,
+  // Use the Markconf file from this spec directory
+  '-c', __dirname
+];
 
-// beforeEach(() => {
-//   loadIncludes.clearStack();
-// });
-
-const markserv = require('app/index.js');
-
-console.log(markserv);
-
-// describe('empty conf module', () => {
-//   it('fails', () => {
-//     //
-//   });
-// });
+describe('empty conf module', () => {
+  it('fails to initialize', () => {
+    const markserv = require('app/markserv.js')(argv);
+    expect(markserv.isInitialized).to.be.a('boolean');
+    expect(markserv.isInitialized).to.equal(false);
+  });
+});
