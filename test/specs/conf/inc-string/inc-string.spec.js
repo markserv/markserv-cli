@@ -19,11 +19,11 @@ describe('Markconf with includer single string', () => {
     expect(markserv.isInitialized).to.equal(true);
     expect(markserv.Markconf).to.be.an('object');
 
-   // should have plugins includers object'
+    // should have plugins includers object'
     expect(markserv.Markconf.includers).to.be.an('object');
     expect(markserv.Markconf.plugins.includers).to.be.an('object');
 
-   // should have plugins modifiers object'
+    // should have plugins modifiers object'
     expect(markserv.Markconf.modifiers).to.be.an('object');
     expect(markserv.Markconf.plugins.modifiers).to.be.an('object');
 

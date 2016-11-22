@@ -20,7 +20,7 @@ const Markconf = {
   // },
 
   // File includers
-  // includers: 'markserv-contrib-app.github',
+  includers: 'markserv-contrib-app.github',
 
   // includers: {
     // html: 'markserv-contrib-inc.html',
