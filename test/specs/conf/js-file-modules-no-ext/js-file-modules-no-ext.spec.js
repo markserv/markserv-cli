@@ -7,6 +7,7 @@ const argv = [null, null,
   '-c', __dirname,
   // Turn off the logger
   '-l', 'OFF'
+  // '-l', 'TRACE'
 ];
 
 describe('Markconf using js strings (without extensions)', () => {
