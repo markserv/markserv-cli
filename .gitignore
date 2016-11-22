@@ -42,3 +42,6 @@ Markserv.log
 
 # Temporary files
 tmp/
+
+# OSX
+.DS_Store
