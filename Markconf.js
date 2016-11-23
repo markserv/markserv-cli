@@ -40,8 +40,8 @@ const Markconf = {
     '**/': 'markserv-contrib-mod.dir',
     // '**/': 'markserv-contrib-app.github',
     '**/*.md': 'markserv-contrib-mod.markdown',
-    // '**/*': 'markserv-contrib-mod.file',
-    // 404: 'markserv-contrib-mod.http-404'
+    '**/*': 'markserv-contrib-mod.file',
+    404: 'markserv-contrib-mod.http-404'
   }
 
     // core: 'markserv-contrib-app.github'
