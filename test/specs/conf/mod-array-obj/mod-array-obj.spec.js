@@ -14,7 +14,7 @@ describe('Markconf with modifier array containing single object', () => {
   // it('should initialize with 1 modifier', function (done) {
   it('should initialize with 1 modifier', done => {
     require('app/markserv.js')(argv).then(markserv => {
-      console.log(markserv);
+      // console.log(markserv);
 
       // should initialize
       expect(markserv.isInitialized).to.be.a('boolean');

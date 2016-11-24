@@ -7,13 +7,14 @@ const argv = [null, null,
   // Use the Markconf file from this spec directory
   '-c', __dirname,
   // Turn off the logger
-  '-l', 'OFF'
+  '-l', 'trace'
+  // '-l', 'OFF'
 ];
 
 describe('Markconf should be able to inherit from Github app', () => {
   it('should initialize with github app modifiers and includers', done => {
     require('app/markserv.js')(argv).then(markserv => {
-      // console.log(markserv.Markconf.plugins);
+      console.log(markserv);
 
       // // should initialize
       // expect(markserv.isInitialized).to.be.a('boolean');
