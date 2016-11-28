@@ -11,10 +11,17 @@ const argv = [null, null,
 
 describe('empty Markconf', () => {
   it('should fail to initialize', done => {
-    const markserv = require('app/markserv.js')(argv);
-    expect(markserv.isInitialized).to.be.a('boolean');
-    expect(markserv.isInitialized).to.equal(false);
-    markserv.kill();
-    done();
+    require('app/markserv.js')(argv).then(markserv => {
+      // console.log(markserv);
+
+      expect(markserv.isInitialized).to.be.a('boolean');
+      expect(markserv.isInitialized).to.equal(false);
+
+      // No httpService  is started, so we can't kill it
+      // markserv.kill();
+      expect(markserv.httpServer).to.equal(undefined);
+
+      done();
+    });
   });
 });

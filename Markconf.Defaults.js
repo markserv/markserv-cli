@@ -1,4 +1,7 @@
 module.exports = {
+  // Should the HTTP Request Handler use the template compiler for content that
+  // is served at run-time?
+  processIncludesInHttpRequests: true,
   fileTypes: {
     markdown: [
       '.md',
@@ -20,7 +23,7 @@ module.exports = {
     },
     port: {
       help: 'Port to serve on [port]',
-      value: 8080,
+      value: '8000-9000',
       flag: '-p'
     },
     address: {

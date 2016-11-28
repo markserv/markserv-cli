@@ -38,7 +38,7 @@ describe('Markconf with modifier array containing single object', () => {
 
       // console.log(dirModifier);
       expect(dirModifier.markconfTemplate).to.be.a('string');
-      expect(fileModifier.markconfTemplate).to.equal('<h1>test</h1>');
+      expect(dirModifier.markconfTemplate).to.equal('<h1>test</h1>');
 
       markserv.kill();
 

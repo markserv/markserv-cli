@@ -11,10 +11,14 @@ const argv = [null, null,
 
 describe('non-empty Markconf', () => {
   it('should initialize', done => {
-    const markserv = require('app/markserv.js')(argv);
-    expect(markserv.isInitialized).to.be.a('boolean');
-    expect(markserv.isInitialized).to.equal(true);
-    markserv.kill();
-    done();
+    require('app/markserv.js')(argv).then(markserv => {
+      // console.log(markserv);
+
+      expect(markserv.isInitialized).to.be.a('boolean');
+      expect(markserv.isInitialized).to.equal(true);
+      markserv.kill();
+
+      done();
+    });
   });
 });

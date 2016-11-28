@@ -20,7 +20,7 @@ const Markconf = {
   // },
 
   // File includers
-  // includers: 'markserv-contrib-app.github',
+  includers: 'markserv-contrib-app.github',
 
   // includers: {
     // html: 'markserv-contrib-inc.html',
@@ -29,20 +29,20 @@ const Markconf = {
   // },
 
   // HTTP Response Modifiers
-  // modifiers: 'markserv-contrib-app.github'
-  modifiers: {
-    // '**/': [
-      // 'markserv-contrib-mod.dir',
-      // 'markserv-contrib-mod.foo',
-      // {'markserv-contrib-mod.dir': 'node_modules/markserv-contrib-mod.dir/lib/mod.dir.html'},
-    //   {'markserv-contrib-mod.foo': 'partials/directory.html'}
-    // ],
-    '**/': 'markserv-contrib-mod.dir',
-    // '**/': 'markserv-contrib-app.github',
-    '**/*.md': 'markserv-contrib-mod.markdown',
-    '**/*': 'markserv-contrib-mod.file',
-    404: 'markserv-contrib-mod.http-404'
-  }
+  modifiers: 'markserv-contrib-app.github'
+  // modifiers: {
+  //   // '**/': [
+  //     // 'markserv-contrib-mod.dir',
+  //     // 'markserv-contrib-mod.foo',
+  //     // {'markserv-contrib-mod.dir': 'node_modules/markserv-contrib-mod.dir/lib/mod.dir.html'},
+  //   //   {'markserv-contrib-mod.foo': 'partials/directory.html'}
+  //   // ],
+  //   '**/': 'markserv-contrib-mod.dir',
+  //   // '**/': 'markserv-contrib-app.github',
+  //   '**/*.md': 'markserv-contrib-mod.markdown',
+  //   '**/*': 'markserv-contrib-mod.file',
+  //   404: 'markserv-contrib-mod.http-404'
+  // }
 
     // core: 'markserv-contrib-app.github'
 

@@ -1,37 +1,47 @@
 {
   "name": "markserv-cli",
-  "version": "1.0.5",
-  "description": "Markserv - realtime Markdown server.",
-  "main": "lib/markserv.js",
+  "version": "1.0.8",
+  "description": "Launch your Markdown content into hyper-space.",
+  "preferGlobal": true,
+  "main": "index.js",
   "bin": {
-    "markserv": "lib/markserv.js"
+    "markserv": "index.js"
   },
   "scripts": {
-    "start": "node lib/markserv.js",
+    "start": "node index.js",
     "test": "xo && mocha test/specs/**/*.spec.js --recursive",
     "watch-test": "mocha test/specs/**/*.spec.js --recursive --watch"
   },
-  "author": "f1lt3r",
-  "license": "GPL-3.0",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/f1t3r/markserv-cli.git"
+  },
+  "directories": {
+    "test": "test"
+  },
   "dependencies": {
-    "bluebird": "^3.4.6",
     "caller-id": "^0.1.0",
     "chalk": "^1.1.3",
     "cheerio": "^0.22.0",
-    "commander": "^2.9.0",
+    "clone-deep": "^0.2.4",
+    "colors": "^1.1.2",
+    "colors-mini": "^1.0.2",
     "connect": "^3.5.0",
     "console.colors": "^1.0.2",
+    "ctrl-c": "^2.2.5",
     "death": "^1.0.0",
+    "deep-equal": "^1.0.1",
+    "first-open-port": "^0.1.2",
+    "grunt": "^1.0.1",
     "http-shutdown": "^1.1.0",
     "log4js": "^0.6.38",
     "minimatch": "^3.0.3",
+    "open": "^0.0.5",
+    "openport": "^0.0.4",
+    "portfinder": "^1.0.10",
     "require.async": "^0.1.1",
     "sigint": "^1.0.0",
-    "http-shutdown": "^1.1.0"
-  },
-  "settings": {
-    "configFilename": "Markconf.js",
-    "defaultsFilename": "Markconf.Defaults.js"
+    "xo": "^0.17.0"
   },
   "devDependencies": {
     "chai": "^3.5.0",
@@ -40,6 +50,29 @@
     "mocha": "^3.1.0",
     "xo": "^0.17.0"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/f1lt3r/markserv-cli.git"
+  },
+  "keywords": [
+    "markdown",
+    "server",
+    "includes",
+    "livereload",
+    "http",
+    "html",
+    "markserv",
+    "markup",
+    "documentation",
+    "website",
+    "blog"
+  ],
+  "author": "F1LT3R",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/f1lt3r/markserv-cli/issues"
+  },
+  "homepage": "https://github.com/f1lt3r/markserv-cli#readme",
   "xo": {
     "esnext": true,
     "space": 2,
@@ -71,5 +104,9 @@
         }
       }
     ]
+  },
+  "settings": {
+    "configFilename": "Markconf.js",
+    "defaultsFilename": "Markconf.Defaults.js"
   }
 }
