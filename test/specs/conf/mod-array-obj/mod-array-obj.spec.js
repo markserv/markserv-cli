@@ -13,7 +13,7 @@ const argv = [null, null,
 describe('Markconf with modifier array containing single object', () => {
   // it('should initialize with 1 modifier', function (done) {
   it('should initialize with 1 modifier', done => {
-    require('app/markserv.js')(argv).then(markserv => {
+    require('app/markserv')(argv).then(markserv => {
       // console.log(markserv);
 
       // should initialize
