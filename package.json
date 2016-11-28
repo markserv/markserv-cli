@@ -3,6 +3,7 @@
   "version": "1.0.6",
   "description": "Markserv - realtime Markdown server.",
   "main": "lib/markserv.js",
+  "repository": "git@github.com:f1t3r/markserv-cli.git",
   "bin": {
     "markserv": "lib/markserv.js"
   },
@@ -22,14 +23,14 @@
     "connect": "^3.5.0",
     "console.colors": "^1.0.2",
     "death": "^1.0.0",
+    "first-open-port": "^0.1.2",
     "http-shutdown": "^1.1.0",
     "log4js": "^0.6.38",
     "minimatch": "^3.0.3",
-    "open": "0.0.5",
-    "openport": "0.0.3",
+    "openport": "0.0.4",
+    "portfinder": "^1.0.10",
     "require.async": "^0.1.1",
-    "sigint": "^1.0.0",
-    "http-shutdown": "^1.1.0"
+    "sigint": "^1.0.0"
   },
   "settings": {
     "configFilename": "Markconf.js",

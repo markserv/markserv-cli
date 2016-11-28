@@ -11,8 +11,8 @@ const argv = [null, null,
   '-c', __dirname,
   // Turn off the logger
   // '-l', 'trace'
-  '-l', 'OFF',
-  '-p', '8889'
+  // '-p', '8889',
+  '-l', 'OFF'
 ];
 
 describe('Markconf with Markdown includer', () => {
