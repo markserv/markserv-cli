@@ -3,23 +3,24 @@
   "version": "1.0.8",
   "description": "Launch your Markdown content into hyper-space.",
   "preferGlobal": true,
-  "main": "index.js",
+  "main": "markserv.js",
   "bin": {
-    "markserv": "index.js"
+    "markserv": "markserv.js"
   },
   "scripts": {
-    "start": "node index.js",
+    "start": "node markserv.js",
     "test": "xo && mocha test/specs/**/*.spec.js --recursive",
     "watch-test": "mocha test/specs/**/*.spec.js --recursive --watch"
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/f1t3r/markserv-cli.git"
+    "url": "git+https://github.com/f1lt3r/markserv-cli.git"
   },
   "directories": {
     "test": "test"
   },
   "dependencies": {
+    "bluebird": "^3.4.6",
     "caller-id": "^0.1.0",
     "chalk": "^1.1.3",
     "cheerio": "^0.22.0",
@@ -37,7 +38,7 @@
     "log4js": "^0.6.38",
     "minimatch": "^3.0.3",
     "open": "^0.0.5",
-    "openport": "^0.0.4",
+    "open-port-host": "^1.0.2",
     "portfinder": "^1.0.10",
     "require.async": "^0.1.1",
     "sigint": "^1.0.0",
@@ -49,10 +50,6 @@
     "grunt": "^1.0.1",
     "mocha": "^3.1.0",
     "xo": "^0.17.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/f1lt3r/markserv-cli.git"
   },
   "keywords": [
     "markdown",

@@ -11,7 +11,7 @@ const argv = [null, null,
 
 describe('non-empty Markconf', () => {
   it('should initialize', done => {
-    require('app/markserv.js')(argv).then(markserv => {
+    require('app/markserv')(argv).then(markserv => {
       // console.log(markserv);
 
       expect(markserv.isInitialized).to.be.a('boolean');

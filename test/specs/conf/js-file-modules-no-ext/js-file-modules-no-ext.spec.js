@@ -12,7 +12,7 @@ const argv = [null, null,
 
 describe('Markconf using js strings (without extensions)', () => {
   it('should initialize with 1 includer and 1 modifier)', done => {
-    require('app/markserv.js')(argv).then(markserv => {
+    require('app/markserv')(argv).then(markserv => {
       // console.log(markserv);
 
       // should initialize
