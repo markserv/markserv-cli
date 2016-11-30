@@ -2,7 +2,7 @@ language: node_js
 node_js:
   - "6.1"
 install:
-  - npm install
+  - "npm install"
   - "bin/setup"
 test:
-  - npm test
+  - "npm test"
