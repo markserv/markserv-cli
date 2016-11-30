@@ -41,7 +41,7 @@
     "open-port-host": "^1.0.2",
     "portfinder": "^1.0.10",
     "require.async": "^0.1.1",
-    "sigint": "^1.0.0",
+    "sigint": "^1.0.0"
   },
   "devDependencies": {
     "chai": "^3.5.0",
