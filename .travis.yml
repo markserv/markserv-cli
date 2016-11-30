@@ -4,4 +4,4 @@ node_js:
   - "6.1"
 
 install:
-  - npm install
+  - npm install --dev
