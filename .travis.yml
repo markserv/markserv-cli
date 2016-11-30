@@ -3,9 +3,6 @@ language: node_js
 node_js:
   - "6.1"
 
-before_install:
-  - "ln -s ./ node_modules/app"
-
 install:
   - npm install
 
