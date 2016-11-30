@@ -20,6 +20,7 @@
     "test": "test"
   },
   "dependencies": {
+    "markserv-contrib-app.github": "^1.0.2",
     "log4js": "^0.6.38",
     "bluebird": "^3.4.6",
     "caller-id": "^0.1.0",
@@ -32,8 +33,7 @@
     "minimatch": "^3.0.3",
     "open": "^0.0.5",
     "open-port-host": "^1.0.2",
-    "sigint": "^1.0.0",
-    "markserv-contrib-app.github": "^1.0.2"
+    "sigint": "^1.0.0"
   },
   "devDependencies": {
     "chai": "^3.5.0",
