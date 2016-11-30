@@ -33,7 +33,7 @@
     "open": "^0.0.5",
     "open-port-host": "^1.0.2",
     "sigint": "^1.0.0",
-    "markserv-contrib-app.github": "^1.0.1"
+    "markserv-contrib-app.github": "^1.0.2"
   },
   "devDependencies": {
     "chai": "^3.5.0",
