@@ -1,13 +1,9 @@
 language: node_js
-
 node_js:
   - "6.1"
-
 before_install:
-  - "ln -s ./ node_modules/app"
-
+  - "bin/setup"
 install:
   - npm install
-
 test:
   - npm test
