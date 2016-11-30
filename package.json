@@ -9,7 +9,7 @@
   },
   "scripts": {
     "start": "node markserv.js",
-    "test": "xo && mocha test/specs/**/*.spec.js --recursive",
+    "test": "xo ./lib/**/* && mocha test/specs/**/*.spec.js --recursive",
     "watch-test": "mocha test/specs/**/*.spec.js --recursive --watch"
   },
   "repository": {
