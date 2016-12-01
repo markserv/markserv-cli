@@ -1,5 +1,4 @@
 #!/bin/bash
-npm --version
 
 # Start in dir of this script
 # cd "$(dirname "$0")"
