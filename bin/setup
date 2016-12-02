@@ -1,7 +1,2 @@
 #!/bin/bash
-
-# Start in dir of this script
-# cd "$(dirname "$0")"
-sudo rm -r node_modules
-npm install
 ln -s ../ node_modules/app

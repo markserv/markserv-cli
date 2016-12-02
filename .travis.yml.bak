@@ -3,6 +3,5 @@ node_js:
   - "6.1"
 install:
   - "npm install"
-  - "bin/setup"
 test:
   - "npm test"
