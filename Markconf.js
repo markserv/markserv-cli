@@ -26,11 +26,11 @@ const Markconf = {
 	// },
 
 	modifiers: {
-		'**/': 'markserv-contrib-mod.dir',
-		// '**/': {
-		// 	module: 'markserv-contrib-mod.dir',
-		// 	template: 'test/partials/test.html'
-		// },
+		// '**/': 'markserv-contrib-mod.dir',
+		'**/': {
+			module: 'markserv-contrib-mod.dir',
+			// template: 'test/partials/test.html'
+		},
 		// '**/*.md': 'markserv-contrib-mod.markdown',
 		// '**/*': 'markserv-contrib-mod.file',
 		// 404: 'markserv-contrib-mod.http-404'
