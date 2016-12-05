@@ -1,10 +1,6 @@
-module.exports = (plugin, markserv) => {
-  return () => {
-    return new Promise(resolve => {
-      resolve({
-        plugin,
-        markserv
-      });
-    });
-  };
+module.exports = {
+	name: 'custom-includer',
+	plugin: () => {
+		return () => {};
+	}
 };
