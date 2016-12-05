@@ -19,11 +19,11 @@ const Markconf = {
 	//   paths: true
 	// },
 
-	// includers: {
-	// 	html: 'markserv-contrib-inc.html',
-	// 	markdown: 'markserv-contrib-inc.markdown',
-	// 	less: 'markserv-contrib-inc.less'
-	// },
+	includers: {
+		html: 'markserv-contrib-inc.html',
+		// markdown: 'markserv-contrib-inc.markdown',
+		// less: 'markserv-contrib-inc.less'
+	},
 
 	modifiers: {
 		// '**/': {
