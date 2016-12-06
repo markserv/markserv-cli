@@ -1,13 +1,16 @@
 const Markconf = {
-  includers: {
-    html: 'markserv-contrib-inc.html'
-  },
+	includers: {
+		html: 'markserv-contrib-inc.html'
+	},
 
-  modifiers: {
-    '**/': [
-      {'markserv-contrib-mod.dir': 'partials/level-1.html'}
-    ]
-  }
-  };
+	modifiers: {
+		'**/': [
+			{
+				module: 'markserv-contrib-mod.dir',
+				template: 'partials/level-1.html'
+			}
+		]
+	}
+};
 
 module.exports = Markconf;
