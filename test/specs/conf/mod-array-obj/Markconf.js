@@ -1,9 +1,12 @@
 const Markconf = {
-  modifiers: {
-    '**/*.*': [
-      {'markserv-contrib-mod.dir': 'partials/partial.html'}
-    ]
-  }
+	modifiers: {
+		'**/*.*': [
+			{
+				module: 'markserv-contrib-mod.dir',
+				template: 'partials/partial.html'
+			}
+		]
+	}
 };
 
 module.exports = Markconf;
