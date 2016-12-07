@@ -6,7 +6,8 @@ const argv = [null, null,
 	// Use the Markconf file from this spec directory
 	'-c', __dirname,
 	// Turn off the logger
-	'-l', 'OFF'
+	'-l', 'OFF',
+	// '-l', 'TRACE'
 ];
 
 describe('Markconf with includer single string', () => {

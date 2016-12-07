@@ -39,7 +39,8 @@ describe('Markconf with Markdown includer', () => {
 					done();
 				});
 			});
-		}).catch(() => {
+		}).catch(err => {
+			throw new Error(err);
 		});
 	});
 });

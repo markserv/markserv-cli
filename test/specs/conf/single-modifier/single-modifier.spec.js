@@ -9,7 +9,7 @@ const argv = [null, null,
 	'-l', 'OFF'
 ];
 
-describe('non-empty Markconf', () => {
+describe('single modifier', () => {
 	it('should initialize', done => {
 		require('app/markserv')(argv).then(markserv => {
 			// console.log(markserv);

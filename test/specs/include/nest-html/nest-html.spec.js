@@ -15,7 +15,7 @@ const argv = [null, null,
 	'-l', 'OFF'
 ];
 
-describe('Markconf with HTML includer', () => {
+describe('nest-html', () => {
 	it('should be able to nest HTML levels deep', done => {
 		require('app/markserv')(argv).then(markserv => {
 			// console.log(markserv);
