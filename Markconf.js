@@ -21,8 +21,8 @@ const Markconf = {
 
 	includers: {
 		html: 'markserv-contrib-inc.html',
-		markdown: 'markserv-contrib-inc.markdown',
-		// less: 'markserv-contrib-inc.less'
+	// 	// markdown: 'markserv-contrib-inc.markdown',
+	// 	// less: 'markserv-contrib-inc.less'
 	},
 
 	modifiers: {
