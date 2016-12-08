@@ -21,7 +21,7 @@ const Markconf = {
 
 	includers: {
 		html: 'markserv-contrib-inc.html',
-	// 	// markdown: 'markserv-contrib-inc.markdown',
+		// markdown: 'markserv-contrib-inc.markdown',
 	// 	// less: 'markserv-contrib-inc.less'
 	},
 
@@ -31,10 +31,10 @@ const Markconf = {
 			// template: 'test/partials/test.html'
 		// },
 		'**/': 'markserv-contrib-mod.dir',
-		'**/*.html': 'markserv-contrib-mod.html',
-		'**/*.md': 'markserv-contrib-mod.markdown',
-		'**/*': 'markserv-contrib-mod.file',
-		404: 'markserv-contrib-mod.http-404'
+		// '**/*.html': 'markserv-contrib-mod.html',
+		// '**/*.md': 'markserv-contrib-mod.markdown',
+		// '**/*': 'markserv-contrib-mod.file',
+		// 404: 'markserv-contrib-mod.http-404'
 	}
 
 	// rewrites: {
