@@ -33,7 +33,7 @@ const Markconf = {
 		'**/': 'markserv-contrib-mod.dir',
 		'**/*.html': 'markserv-contrib-mod.html',
 		'**/*.md': 'markserv-contrib-mod.markdown',
-		// '**/*': 'markserv-contrib-mod.file',
+		'**/*': 'markserv-contrib-mod.file',
 		// 404: 'markserv-contrib-mod.http-404'
 	}
 
