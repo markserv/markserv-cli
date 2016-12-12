@@ -21,20 +21,20 @@ describe('Markconf with Markdown includer', () => {
 			// console.log(markserv);
 
 			// // should initialize
-			expect(markserv.isInitialized).to.be.a('boolean');
-			expect(markserv.isInitialized).to.equal(true);
-			expect(markserv.Markconf).to.be.an('object');
+			expect(markserv.initialized).to.be.a('boolean');
+			expect(markserv.initialized).to.equal(true);
+			expect(markserv.MarkconfJs).to.be.an('object');
 
 			const expectedHtml = fs.readFileSync(path.join(__dirname, 'expected.html'), 'utf8');
 
-			http.get({port: markserv.Markconf.port}).on('response', res => {
+			http.get({port: markserv.httpServer.port}).on('response', res => {
 				res.setEncoding('utf8');
 				res.on('data', data => {
 					// console.log(data);
 
 					expect(data).to.equal(expectedHtml);
 
-					markserv.kill(markserv);
+					markserv.shutdown(markserv);
 
 					done();
 				});

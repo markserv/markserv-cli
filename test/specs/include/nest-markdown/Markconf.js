@@ -8,7 +8,7 @@ const Markconf = {
 		'**/': [
 			{
 				module: 'markserv-contrib-mod.dir',
-				template: 'partials/level-1.html'
+				templateUrl: 'partials/level-1.html'
 			}
 		]
 	}
