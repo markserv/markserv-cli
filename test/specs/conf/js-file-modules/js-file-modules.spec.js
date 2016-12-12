@@ -5,9 +5,9 @@ const expect = chai.expect;
 const argv = [null, null,
 	// Use the Markconf file from this spec directory
 	'-c', __dirname,
-	// Turn off the logger
-	// '-l', 'OFF',
-	'-l', 'TRACE'
+	// Turn off the logger for testing
+	'-l', 'OFF'
+	// '-l', 'TRACE'
 ];
 
 describe('Markconf with includer single string', () => {
@@ -16,9 +16,9 @@ describe('Markconf with includer single string', () => {
 			// console.log(markserv);
 
 			// should initialize
-			expect(markserv.isInitialized).to.be.a('boolean');
-			expect(markserv.isInitialized).to.equal(true);
-			expect(markserv.Markconf).to.be.an('object');
+			expect(markserv.initialized).to.be.a('boolean');
+			expect(markserv.initialized).to.equal(true);
+			expect(markserv.MarkconfJs).to.be.an('object');
 
 			// should have plugins includers object'
 			expect(markserv.plugins.includers).to.be.an('object');
@@ -37,9 +37,9 @@ describe('Markconf with includer single string', () => {
 
 			const fileModifier = markserv.plugins.modifiers['**/*.*'];
 			expect(fileModifier.name).to.equal('custom-modifier');
-			expect(fileModifier.httpResponseModifier).to.be.a('function');
+			expect(fileModifier.handle).to.be.a('function');
 
-			markserv.kill(markserv);
+			markserv.shutdown(markserv);
 
 			done();
 		});
