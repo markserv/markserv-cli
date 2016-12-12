@@ -6,7 +6,7 @@ const argv = [null, null,
 	// Use the Markconf file from this spec directory
 	'-c', __dirname,
 	// Turn off the logger
-	'-l', 'OFF',
+	'-l', 'OFF'
 	// '-l', 'TRACE'
 ];
 
@@ -16,9 +16,9 @@ describe('Markconf with includer single string', () => {
 			// console.log(markserv);
 
 			// // should initialize
-			expect(markserv.isInitialized).to.be.a('boolean');
-			expect(markserv.isInitialized).to.equal(true);
-			expect(markserv.Markconf).to.be.an('object');
+			expect(markserv.initialized).to.be.a('boolean');
+			expect(markserv.initialized).to.equal(true);
+			expect(markserv.MarkconfJs).to.be.an('object');
 
 			// should have plugins includers object'
 			expect(markserv.plugins.includers).to.be.an('object');
@@ -30,7 +30,7 @@ describe('Markconf with includer single string', () => {
 			expect(markserv.plugins.includers.html).to.be.an('object');
 			expect(markserv.plugins.modifiers['**/*.*']).to.be.an('object');
 
-			markserv.kill(markserv);
+			markserv.shutdown(markserv);
 
 			// should load the modifier: `markserv-contrib-inc.html`
 			const htmlIncluder = markserv.plugins.includers.html;
