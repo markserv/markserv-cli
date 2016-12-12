@@ -15,8 +15,8 @@ describe('Markconf with modifier array containing single string', () => {
 			// console.log(markserv);
 
 			// should initialize
-			expect(markserv.isInitialized).to.be.a('boolean');
-			expect(markserv.isInitialized).to.equal(true);
+			expect(markserv.initialized).to.be.a('boolean');
+			expect(markserv.initialized).to.equal(true);
 
 			// should have plugins modifiers object'
 			expect(markserv.plugins).to.be.an('object');
@@ -29,9 +29,9 @@ describe('Markconf with modifier array containing single string', () => {
 			// should load the modifier: `markserv-contrib-mod.file`
 			const fileModifier = markserv.plugins.modifiers['**/*.*'][0];
 			expect(fileModifier.name).to.equal('markserv-contrib-mod.file');
-			expect(fileModifier.httpResponseModifier).to.be.a('function');
+			expect(fileModifier.handle).to.be.a('function');
 
-			markserv.kill(markserv);
+			markserv.shutdown(markserv);
 
 			done();
 		});
