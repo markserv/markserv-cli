@@ -22,7 +22,7 @@ const Markconf = {
 	includers: {
 		// html: 'markserv-contrib-inc.html',
 		// markdown: 'markserv-contrib-inc.markdown',
-	// 	// less: 'markserv-contrib-inc.less'
+		// less: 'markserv-contrib-inc.less'
 	},
 
 	modifiers: {
@@ -31,8 +31,8 @@ const Markconf = {
 			// template: 'test/partials/test.html'
 		// },
 		'**/': 'markserv-contrib-mod.dir',
-		// '**/*.html': 'markserv-contrib-mod.html',
-		// '**/*.md': 'markserv-contrib-mod.markdown',
+		'**/*.html': 'markserv-contrib-mod.html',
+		'**/*.md': 'markserv-contrib-mod.markdown',
 		// '**/*': 'markserv-contrib-mod.file',
 		// 404: 'markserv-contrib-mod.http-404'
 	}

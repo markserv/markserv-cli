@@ -5,7 +5,10 @@ const Markconf = {
 
 	modifiers: {
 		'**/': [
-			{'markserv-contrib-mod.dir': 'partials/outer.html'}
+			{
+				module: 'markserv-contrib-mod.dir',
+				templateUrl: 'partials/outer.html'
+			}
 		]
 	}
 };
