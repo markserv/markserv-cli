@@ -6,8 +6,8 @@ const argv = [null, null,
 	// Use the Markconf file from this spec directory
 	'-c', __dirname,
 	// Turn off the logger for testing
-	// '-l', 'OFF'
-	'-l', 'TRACE'
+	'-l', 'OFF'
+	// '-l', 'TRACE'
 ];
 
 describe('single modifier', () => {

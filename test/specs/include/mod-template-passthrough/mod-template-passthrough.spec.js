@@ -17,7 +17,7 @@ const argv = [null, null,
 	'-l', 'OFF'
 ];
 
-describe('Markconf with HTML includer', () => {
+describe('mod-template-passthrough', () => {
 	it('should be able to nest HTML levels deep', done => {
 		require('app/markserv')(argv).then(markserv => {
 			// console.log(markserv);
@@ -29,19 +29,37 @@ describe('Markconf with HTML includer', () => {
 
 			const expectedHtml = fs.readFileSync(path.join(__dirname, 'expected.html'), 'utf8');
 
-			http.get({
+			const web = http.get({
 				port: markserv.httpServer.port,
 				headers: {'Cache-Control': 'no-cache'}
-			}).on('response', res => {
+			});
+
+			function onResponse(res) {
 				res.setEncoding('utf8');
-				// eslint-disable-next-line max-nested-callbacks
-				res.on('data', data => {
-					// console.log(data);
+
+				function onData(data) {
 					expect(data).to.equal(expectedHtml);
 					markserv.shutdown(markserv);
+				}
+
+				function onEnd() {
+					res.removeListener('data', onData);
+					res.removeListener('end', onEnd);
 					done();
-				});
-			});
+				}
+
+				res.on('data', onData);
+				res.on('end', onEnd);
+			}
+
+			web.on('response', onResponse);
+
+			function webEnd() {
+				web.removeListener('response', onResponse);
+				web.removeListener('end', webEnd);
+			}
+
+			web.on('end', webEnd);
 		});
 	});
 });
