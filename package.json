@@ -1,6 +1,6 @@
 {
   "name": "markserv-cli",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "Launch your Markdown content into hyper-space.",
   "preferGlobal": false,
   "main": "markserv.js",
@@ -11,7 +11,8 @@
     "start": "node markserv.js",
     "test": "xo ./lib/**/* && mocha test/specs/**/*.spec.js --recursive",
     "watch-test": "mocha test/specs/**/*.spec.js --recursive --watch",
-    "postinstall": "bin/setup"
+    "preinstall": "rm -rf node_modules/app || true",
+    "postinstall": "ln -s ../ node_modules/app"
   },
   "repository": {
     "type": "git",
@@ -31,7 +32,7 @@
     "grunt": "^1.0.1",
     "http-shutdown": "^1.1.0",
     "log4js": "^1.0.1",
-    "markserv-contrib-app.github": "^1.0.4",
+    "markserv-contrib-app.github": "^1.0.6",
     "minimatch": "^3.0.3",
     "open": "^0.0.5",
     "open-port-host": "^1.0.2",
@@ -40,8 +41,8 @@
   "devDependencies": {
     "chai": "^3.5.0",
     "chai-as-promised": "^6.0.0",
-    "mocha": "^3.1.0",
-    "xo": "^0.17.0"
+    "mocha": "^3.2.0",
+    "xo": "^0.17.1"
   },
   "keywords": [
     "markdown",
