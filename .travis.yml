@@ -1,6 +1,10 @@
+os: osx
 language: node_js
 node_js:
   - "6.1"
+before_install:
+  - brew update
+  - brew outdated node6-lts || brew upgrade node6-lts
 install:
   - "npm install"
 test:
