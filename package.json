@@ -11,7 +11,7 @@
     "start": "node markserv.js",
     "test": "xo ./lib/**/* && mocha test/specs/**/*.spec.js --recursive",
     "watch-test": "mocha test/specs/**/*.spec.js --recursive --watch",
-    "post-install": "bin/setup"
+    "postinstall": "bin/setup"
   },
   "repository": {
     "type": "git",
@@ -30,8 +30,8 @@
     "ctrl-c": "^2.2.5",
     "grunt": "^1.0.1",
     "http-shutdown": "^1.1.0",
-    "log4js": "^0.6.38",
-    "markserv-contrib-app.github": "^1.0.3",
+    "log4js": "^1.0.1",
+    "markserv-contrib-app.github": "^1.0.4",
     "minimatch": "^3.0.3",
     "open": "^0.0.5",
     "open-port-host": "^1.0.2",
