@@ -13,7 +13,7 @@ const argv = [null, null,
 describe('Markconf with includer single string', () => {
 	it('should initialize with 1 includer (also requires 1 modifier)', done => {
 		require('app/markserv')(argv).then(markserv => {
-			// console.log(markserv);
+			console.log(markserv);
 
 			// // should initialize
 			expect(markserv.initialized).to.be.a('boolean');
@@ -30,12 +30,12 @@ describe('Markconf with includer single string', () => {
 			expect(markserv.plugins.includers.html).to.be.an('object');
 			expect(markserv.plugins.modifiers['**/*.*']).to.be.an('object');
 
-			markserv.shutdown(markserv);
-
 			// should load the modifier: `markserv-contrib-inc.html`
 			const htmlIncluder = markserv.plugins.includers.html;
 			expect(htmlIncluder.name).to.equal('markserv-contrib-inc.html');
 			expect(htmlIncluder.htmlCommentIncluder).to.be.a('function');
+
+			markserv.shutdown(markserv);
 
 			done();
 		});

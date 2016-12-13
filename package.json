@@ -1,6 +1,6 @@
 {
   "name": "markserv-cli",
-  "version": "1.0.10",
+  "version": "1.0.12",
   "description": "Launch your Markdown content into hyper-space.",
   "preferGlobal": false,
   "main": "markserv.js",
@@ -11,6 +11,7 @@
     "start": "node markserv.js",
     "test": "xo ./lib/**/* && mocha test/specs/**/*.spec.js --recursive",
     "watch-test": "mocha test/specs/**/*.spec.js --recursive --watch",
+    "prepublish": "npm test",
     "preinstall": "rm -rf node_modules/app || true",
     "postinstall": "ln -s ../ node_modules/app"
   },
