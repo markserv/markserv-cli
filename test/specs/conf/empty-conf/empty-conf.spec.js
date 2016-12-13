@@ -1,3 +1,4 @@
+const path = require('path');
 const chai = require('chai');
 
 const expect = chai.expect;
@@ -14,7 +15,8 @@ describe('empty Markconf', () => {
 		require('app/markserv')(argv)
 		.catch(err => {
 			expect(err).to.be.a('string');
-			expect(err).to.equal('Plugins were not found in the Markconf file: \u001b[34m\u001b[4m/Users/al/ms/markserv-cli/test/specs/conf/empty-conf/Markconf.js\u001b[24m\u001b[39m.');
+      const markconfPath = path.resolve(path.join(__dirname, 'Markconf.js'));
+			expect(err).to.equal('Plugins were not found in the Markconf file: \u001b[34m\u001b[4m' + markconfPath + '\u001b[24m\u001b[39m.');
 			done();
 		});
 	});
