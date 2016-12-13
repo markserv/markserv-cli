@@ -1,2 +1,10 @@
 #!/usr/bin/env node
-module.exports = require('app/lib/core/init.js');
+const init = require('app/lib/core/init.js');
+
+const CLI = !module.parent;
+
+if (CLI) {
+	init(process.argv);
+}
+
+module.exports = init;
