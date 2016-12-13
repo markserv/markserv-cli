@@ -2,6 +2,7 @@ os: osx
 language: node_js
 before_install:
   - brew update
+  - brew install node6-lts
   - brew outdated node6-lts || brew upgrade node6-lts
 install:
   - "npm install"
