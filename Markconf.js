@@ -8,10 +8,10 @@ const Markconf = {
 	// },
 
 	modifiers: {
-		// '**/': {
-		// 	module: '@import',
-		// 	templateUrl: 'partials/test.html'
-		// },
+		'**/': {
+			module: '@import',
+			templateUrl: 'partials/test.html'
+		},
 		// '**': 'markserv-contrib-mod.dir',
 
 	// 	// '**/*.html': 'markserv-contrib-mod.html',
