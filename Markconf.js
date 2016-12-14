@@ -1,11 +1,11 @@
 const Markconf = {
 	import: 'markserv-contrib-app.github',
 
-	// includers: {
+	includers: {
 	// 	html: 'markserv-contrib-inc.html',
-	// 	markdown: 'markserv-contrib-inc.markdown',
+		markdown: 'markserv-contrib-inc.markdown',
 	// // 	less: 'markserv-contrib-inc.less'
-	// },
+	},
 
 	modifiers: {
 		// '**/': {
