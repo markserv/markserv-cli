@@ -1,16 +1,16 @@
 const Markconf = {
 	import: 'markserv-contrib-app.github',
 
-	// includers: {
-	// 	html: 'markserv-contrib-inc.html',
+	includers: {
+		html: 'markserv-contrib-inc.html',
 	// 	markdown: 'markserv-contrib-inc.markdown',
 	// 	less: 'markserv-contrib-inc.less'
-	// },
+	},
 
 	modifiers: {
 		'**/': {
 			module: '@import',
-			template: 'partials/test.html',
+			// templateUrl: 'partials/test.html',
 		},
 		// '**/*.html': 'markserv-contrib-mod.html',
 		// '**/*.md': 'markserv-contrib-mod.markdown',
