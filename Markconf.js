@@ -10,7 +10,7 @@ const Markconf = {
 	modifiers: {
 		'**/': {
 			module: '@import',
-			// templateUrl: 'partials/test.html',
+			templateUrl: 'partials/test.html'
 		},
 		// '**/*.html': 'markserv-contrib-mod.html',
 		// '**/*.md': 'markserv-contrib-mod.markdown',
