@@ -1,5 +1,5 @@
 const Markconf = {
-	import: 'markserv-contrib-app.github'
+	import: 'markserv-contrib-app.github',
 
 	// includers: {
 	// 	html: 'markserv-contrib-inc.html',
@@ -7,13 +7,16 @@ const Markconf = {
 	// 	less: 'markserv-contrib-inc.less'
 	// },
 
-	// modifiers: {
-	// 	'**/': 'markserv-contrib-mod.dir',
-	// 	'**/*.html': 'markserv-contrib-mod.html',
-	// 	'**/*.md': 'markserv-contrib-mod.markdown',
-	// 	'**/*': 'markserv-contrib-mod.file',
-	// 	404: 'markserv-contrib-mod.http-404'
-	// }
+	modifiers: {
+		'**/': {
+			module: '@import',
+			template: 'partials/test.html',
+		},
+		// '**/*.html': 'markserv-contrib-mod.html',
+		// '**/*.md': 'markserv-contrib-mod.markdown',
+		// '**/*': 'markserv-contrib-mod.file',
+		// 404: 'markserv-contrib-mod.http-404'
+	}
 
 	// watch: {
 	//   Markconf: true,
