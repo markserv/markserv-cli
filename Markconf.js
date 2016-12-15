@@ -1,19 +1,23 @@
 const Markconf = {
-	import: 'markserv-contrib-app.github'
+	import: 'markserv-contrib-app.github',
 
-	// includers: {
-	// 	html: 'markserv-contrib-inc.html',
-	// 	markdown: 'markserv-contrib-inc.markdown',
-	// 	less: 'markserv-contrib-inc.less'
-	// },
+	includers: {
+		// html: 'markserv-contrib-inc.html',
+		markdown: 'markserv-contrib-inc.markdown',
+		// less: 'markserv-contrib-inc.less'
+	},
 
-	// modifiers: {
-	// 	'**/': 'markserv-contrib-mod.dir',
-	// 	'**/*.html': 'markserv-contrib-mod.html',
-	// 	'**/*.md': 'markserv-contrib-mod.markdown',
-	// 	'**/*': 'markserv-contrib-mod.file',
-	// 	404: 'markserv-contrib-mod.http-404'
-	// }
+	modifiers: {
+		'**/': {
+			module: '@import',
+			// templateUrl: 'examples/includes/test/test.html'
+		},
+		// '**/': 'markserv-contrib-mod.dir',
+		'**/*.html': 'markserv-contrib-mod.html',
+		'**/*.md': 'markserv-contrib-mod.markdown',
+		// '404': 'markserv-contrib-mod.http-404',
+		'**/*': 'markserv-contrib-mod.file',
+	}
 
 	// watch: {
 	//   Markconf: true,

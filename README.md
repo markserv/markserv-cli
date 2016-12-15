@@ -3,3 +3,5 @@
 # markserv-cli
 
 markserv command line interface
+
+<!--markserv|markdown|test2.md-->
