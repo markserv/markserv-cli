@@ -97,6 +97,6 @@
   },
   "settings": {
     "configFilename": "Markconf.js",
-    "defaultsFilename": "Markconf.Defaults.js"
+    "defaultsFilename": "markconf.defaults.js"
   }
 }
