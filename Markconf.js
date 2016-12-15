@@ -16,7 +16,7 @@ const Markconf = {
 		'**/*.html': 'markserv-contrib-mod.html',
 		'**/*.md': 'markserv-contrib-mod.markdown',
 		'**/*': 'markserv-contrib-mod.file',
-		404: 'markserv-contrib-mod.http-404'
+		// 404: 'markserv-contrib-mod.http-404'
 	}
 
 	// watch: {
