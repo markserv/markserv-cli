@@ -1,12 +1,10 @@
 const Markconf = {
 	import: 'markserv-contrib-app.github',
-	data: {
-		foo: 'bar',
-		bar: 'baz'
-	},
-	// modifiers: {
-		// '*.xlt': 'markserv-contrib-mod.dir'
-	// }
+
+	// Overrides all
+	overrides: {
+		// MarkconfUrl: __filename
+	}
 };
 
 module.exports = Markconf;
