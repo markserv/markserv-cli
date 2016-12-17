@@ -30,6 +30,7 @@
     "clone-deep": "^0.2.4",
     "connect": "^3.5.0",
     "ctrl-c": "^2.2.5",
+    "deep-extend": "^0.4.1",
     "grunt": "^1.0.1",
     "http-shutdown": "^1.1.0",
     "log4js": "^1.0.1",

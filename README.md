@@ -4,4 +4,12 @@
 
 markserv command line interface
 
+```javascript
+const a = props => {
+	return props;
+};
+
+a({b:2, c: 3});
+```
+
 <!--markserv|markdown|test2.md-->
