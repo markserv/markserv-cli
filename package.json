@@ -1,0 +1,102 @@
+{
+  "name": "markserv-cli",
+  "version": "1.0.12",
+  "description": "Launch your Markdown content into hyper-space.",
+  "preferGlobal": false,
+  "main": "markserv.js",
+  "bin": {
+    "markserv": "markserv.js"
+  },
+  "scripts": {
+    "start": "node markserv.js",
+    "test": "xo ./lib/**/* && mocha ./test/specs/**/*.spec.js --recursive",
+    "watch-test": "mocha test/specs/**/*.spec.js --recursive --watch",
+    "prepublish": "npm test",
+    "preinstall": "rm -rf node_modules/app || true",
+    "postinstall": "ln -s ../ node_modules/app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/f1lt3r/markserv-cli.git"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "bluebird": "^3.4.6",
+    "caller-id": "^0.1.0",
+    "chalk": "^1.1.3",
+    "cheerio": "^0.22.0",
+    "clone-deep": "^0.2.4",
+    "connect": "^3.5.0",
+    "ctrl-c": "^2.2.5",
+    "grunt": "^1.0.1",
+    "http-shutdown": "^1.1.0",
+    "log4js": "^1.0.1",
+    "markserv-contrib-app.github": "^1.0.7",
+    "minimatch": "^3.0.3",
+    "open": "^0.0.5",
+    "open-port-host": "^1.0.2",
+    "sigint": "^1.0.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-as-promised": "^6.0.0",
+    "mocha": "^3.2.0",
+    "xo": "^0.17.1"
+  },
+  "keywords": [
+    "markdown",
+    "server",
+    "includes",
+    "livereload",
+    "http",
+    "html",
+    "markserv",
+    "markup",
+    "documentation",
+    "website",
+    "blog"
+  ],
+  "author": "F1LT3R",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/f1lt3r/markserv-cli/issues"
+  },
+  "homepage": "https://github.com/f1lt3r/markserv-cli#readme",
+  "xo": {
+    "esnext": true,
+    "globals": [
+      "it",
+      "describe",
+      "beforeEach",
+      "before",
+      "after",
+      "afterEach"
+    ],
+    "rules": {
+      "import/no-extraneous-dependencies": 0,
+      "import/no-dynamic-require": 0,
+      "import/no-unresolved": 0,
+      "no-use-extend-native": 0,
+      "no-multi-str": 0
+    },
+    "overrides": [
+      {
+        "files": "**/Markconf.*",
+        "rules": {
+          "unicorn/filename-case": [
+            "error",
+            {
+              "case": "pascalCase"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "settings": {
+    "configFilename": "Markconf.js",
+    "defaultsFilename": "markconf.defaults.js"
+  }
+}
