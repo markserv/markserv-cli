@@ -98,6 +98,6 @@
   },
   "settings": {
     "configFilename": "Markconf.js",
-    "defaultsFilename": "markconf.defaults.js"
+    "defaultsFilename": "markserv.defaults.js"
   }
 }
