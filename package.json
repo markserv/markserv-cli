@@ -17,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/f1lt3r/markserv-cli.git"
+    "url": "git+https://github.com/markserv/markserv-cli.git"
   },
   "directories": {
     "test": "test"
@@ -62,9 +62,9 @@
   "author": "F1LT3R",
   "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/f1lt3r/markserv-cli/issues"
+    "url": "https://github.com/markserv/markserv-cli/issues"
   },
-  "homepage": "https://github.com/f1lt3r/markserv-cli#readme",
+  "homepage": "https://github.com/markserv/markserv-cli#readme",
   "xo": {
     "esnext": true,
     "globals": [
