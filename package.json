@@ -1,7 +1,7 @@
 {
   "name": "markserv-cli",
-  "version": "1.0.14",
-  "description": "Launch your Markdown content into hyper-space.",
+  "version": "1.0.62",
+  "description": "Launch your Markdown content into hyper-space.  Hello.",
   "preferGlobal": true,
   "main": "markserv.js",
   "bin": {
@@ -15,10 +15,7 @@
     "preinstall": "rm -rf node_modules/app || true",
     "postinstall": "ln -s ../ node_modules/app"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/markserv/markserv-cli.git"
-  },
+  "repository": "git@github.com:markserv/markserv-cli",
   "directories": {
     "test": "test"
   },
