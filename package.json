@@ -1,7 +1,7 @@
 {
   "name": "markserv-cli",
   "version": "1.0.63",
-  "description": "Launch your Markdown content into hyper-space.",
+"description": "Launch your Markdown content into hyper-space. ",
   "preferGlobal": true,
   "main": "markserv.js",
   "bin": {
