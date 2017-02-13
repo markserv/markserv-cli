@@ -3,6 +3,15 @@ const Markconf = {
 
 	overrides: {
 		MarkconfUrl: __filename
+	},
+
+	watch: {
+		Markconf: true,
+		plugins: true,
+
+		files: [
+			'**/*.md'
+		]
 	}
 };
 
