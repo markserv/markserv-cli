@@ -36,6 +36,8 @@
     "minimatch": "^3.0.3",
     "open": "^0.0.5",
     "open-port-host": "^1.0.2",
+    "packpath": "^0.1.0",
+    "resolve": "^1.2.0",
     "sigint": "^1.0.0",
     "watch": "^1.0.1"
   },

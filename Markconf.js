@@ -2,7 +2,7 @@ const Markconf = {
 	import: 'markserv-contrib-app.github',
 
 	overrides: {
-		MarkconfUrl: __filename
+		MarkconfUr: __filename
 	},
 
 	watch: {
