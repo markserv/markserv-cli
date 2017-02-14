@@ -27,6 +27,7 @@
     "connect": "^3.5.0",
     "connect-livereload": "^0.6.0",
     "ctrl-c": "^2.2.5",
+    "forever": "^0.15.3",
     "handlebars": "^4.0.6",
     "http-shutdown": "^1.1.0",
     "livereload-xl": "^0.7.0",
