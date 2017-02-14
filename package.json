@@ -29,13 +29,14 @@
     "ctrl-c": "^2.2.5",
     "handlebars": "^4.0.6",
     "http-shutdown": "^1.1.0",
-    "livereload": "^0.6.0",
+    "livereload-xl": "^0.7.0",
     "log4js": "^1.0.1",
     "markserv-contrib-app.github": "^1.0.7",
     "minimatch": "^3.0.3",
     "open": "^0.0.5",
     "open-port-host": "^1.0.2",
-    "sigint": "^1.0.0"
+    "sigint": "^1.0.0",
+    "watch": "^1.0.1"
   },
   "devDependencies": {
     "chai": "^3.5.0",

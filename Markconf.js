@@ -8,9 +8,9 @@ const Markconf = {
 	watch: {
 		Markconf: true,
 		plugins: true,
-
 		files: [
-			'**/*.md'
+			'**/*.md',
+			'**/*.js'
 		]
 	}
 };
