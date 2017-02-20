@@ -36,9 +36,7 @@ describe('Markconf with modifier array containing strings', () => {
 			expect(fileModifierB.name).to.equal('markserv-contrib-mod.dir');
 			expect(fileModifierB.handle).to.be.a('function');
 
-			markserv.shutdown(markserv);
-
-			done();
+			markserv.shutdown(markserv, done);
 		});
 	});
 });

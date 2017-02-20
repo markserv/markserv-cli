@@ -31,9 +31,7 @@ describe('Markconf with modifier array containing single string', () => {
 			expect(fileModifier.name).to.equal('markserv-contrib-mod.file');
 			expect(fileModifier.handle).to.be.a('function');
 
-			markserv.shutdown(markserv);
-
-			done();
+			markserv.shutdown(markserv, done);
 		});
 	});
 });

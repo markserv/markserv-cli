@@ -43,8 +43,7 @@ describe('mod-array-obj-str-template', () => {
 			expect(dirModifier.pluginTemplateUrl).to.be.an('string');
 			expect(dirModifier.pluginTemplate).to.equal('<h1>Index of {{dir}}</h1>\n\n<ul>\n  {{#files}}\n    <li class="{{class}}">\n      <a href="{{path}}">{{name}}</a>\n    </li>\n  {{/files}}\n</ul>\n');
 
-			markserv.shutdown(markserv);
-			done();
+			markserv.shutdown(markserv, done);
 		}).catch(err => {
 			console.log(err);
 			throw new Error(err);

@@ -39,9 +39,7 @@ describe('Markconf using js strings (without extensions)', () => {
 			expect(fileModifier.name).to.equal('custom-modifier');
 			expect(fileModifier.handle).to.be.a('function');
 
-			markserv.shutdown(markserv);
-
-			done();
+			markserv.shutdown(markserv, done);
 		});
 	});
 });
