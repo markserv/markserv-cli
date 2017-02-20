@@ -41,7 +41,7 @@ describe('mod-array-obj', () => {
 			expect(dirModifier.configTemplate).to.equal('<h1>test</h1>');
 
 			expect(dirModifier.pluginTemplateUrl).to.be.a('string');
-			expect(dirModifier.pluginTemplate).to.equal('<h1>Index of {{dir}}</h1>\n\n<ul>\n  {{#files}}\n    <li class="{{class}}">\n      <a href="{{path}}">{{name}}</a>\n    </li>\n  {{/files}}\n</ul>');
+			expect(dirModifier.pluginTemplate).to.equal('<h1>Index of {{dir}}</h1>\n\n<ul>\n  {{#files}}\n    <li class="{{class}}">\n      <a href="{{path}}">{{name}}</a>\n    </li>\n  {{/files}}\n</ul>\n');
 
 			markserv.shutdown(markserv);
 			done();
