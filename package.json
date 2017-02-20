@@ -33,7 +33,6 @@
     "forever": "^0.15.3",
     "handlebars": "^4.0.6",
     "http-shutdown": "^1.1.0",
-    "livereload-xl": "^0.7.0",
     "log4js": "^1.0.1",
     "markserv-contrib-app.github": "^1.0.7",
     "minimatch": "^3.0.3",
