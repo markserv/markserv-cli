@@ -1,4 +1,4 @@
-{
+<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>{
   "name": "markserv-cli",
   "version": "1.0.64",
   "description": "Launch your Markdown content into hyper-space. TEST",
@@ -34,7 +34,7 @@
     "handlebars": "^4.0.6",
     "http-shutdown": "^1.1.0",
     "log4js": "^1.0.1",
-    "markserv-contrib-app.github": "^1.0.7",
+    "markserv-contrib-app.github": "^1.0.77",
     "minimatch": "^3.0.3",
     "open": "^0.0.5",
     "open-port-host": "^2.0.0",
