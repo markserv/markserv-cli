@@ -12,7 +12,7 @@ const argv = [null, null,
 describe('single modifier', () => {
 	it('should initialize', done => {
 		require('app/markserv')(argv).then(markserv => {
-			console.log(markserv);
+			// console.log(markserv);
 			// process.exit();
 
 			expect(markserv.initialized).to.be.a('boolean');
