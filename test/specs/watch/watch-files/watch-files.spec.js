@@ -9,8 +9,9 @@ const expect = chai.expect;
 const argv = [null, null,
 	// Use the Markconf file from this spec directory
 	'-c', __dirname,
+	'-r', __dirname,
+	'-l', 'OFF'
 	// Turn off the logger for testing
-	// '-l', 'OFF'
 	// '-p', '8889',
 	// '-l', 'TRACE'
 ];
@@ -23,7 +24,7 @@ const fileStates = [
 const horseman = new Horseman();
 
 const writeState = index => {
-	fs.writeFileSync('./partials/test.html', fileStates[index], err => {
+	fs.writeFileSync(path.join(__dirname, 'partials/test.html'), fileStates[index], err => {
 		if (err) {
 			return console.error(err);
 		}
@@ -35,8 +36,8 @@ const expectedHtml2 = fs.readFileSync(path.join(__dirname, 'expected2.html'), 'u
 
 writeState(0);
 
-describe('single modifier', () => {
-	it('should initialize', function (done) {
+describe('watch html file (browserSync/cokidar)', () => {
+	it('should reload page when file changes', function (done) {
 		this.timeout(10000);
 
 		require('app/markserv')(argv).then(markserv => {
@@ -46,27 +47,36 @@ describe('single modifier', () => {
 			expect(markserv.initialized).to.equal(true);
 			expect(markserv.MarkconfJs).to.be.an('object');
 
-			horseman
-			.userAgent('Mozilla/5.0 (Windows NT 6.1; WOW64; rv:27.0) Gecko/20100101 Firefox/27.0')
-			.open('http://localhost:8000/partials/test.html')
-			.wait(100)
-			.evaluate(function () {
-				return document.getElementsByTagName('body')[0].innerHTML;
-			})
-			.then(function (actualHtml1) {
-				expect(expectedHtml1).to.equal(actualHtml1);
-				writeState(1);
-			})
-			.wait(500)
-			.evaluate(function () {
-				return document.getElementsByTagName('body')[0].innerHTML;
-			})
-			.then(function (actualHtml2) {
-				expect(expectedHtml2).to.equal(actualHtml2);
-				expect(actualHtml2).to.equal(expectedHtml2);
-				done();
-			})
-			.close();
+			// console.log(markserv);
+
+			const address = markserv.args.address;
+			const port = markserv.browserSync.port;
+			const url = `http://${address}:${port}/partials/test.html`;
+
+			// console.log(url);
+
+			setTimeout(() => {
+				horseman
+				.userAgent('Mozilla/5.0 (Windows NT 6.1; WOW64; rv:27.0) Gecko/20100101 Firefox/27.0')
+				.open(url)
+				.evaluate(function () {
+					return document.getElementsByTagName('body')[0].innerHTML;
+				})
+				.then(function (actualHtml1) {
+					expect(expectedHtml1).to.equal(actualHtml1);
+					writeState(1);
+				})
+				.wait(500)
+				.evaluate(function () {
+					return document.getElementsByTagName('body')[0].innerHTML;
+				})
+				.then(function (actualHtml2) {
+					expect(expectedHtml2).to.equal(actualHtml2);
+					expect(actualHtml2).to.equal(expectedHtml2);
+					done();
+				})
+				.close();
+			}, 1000);
 		});
 	});
 });
