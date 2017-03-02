@@ -10,7 +10,7 @@
   "scripts": {
     "start": "node markserv.js",
     "test": "xo ./lib/**/* && mocha ./test/specs/**/*.spec.js --recursive",
-    "watch-test": "mocha test/specs/**/*.spec.js --recursive --watch",
+    "watch-test": "mocha test/specs/**/*.spec.js --recursive --watch --timeout 10000",
     "prepublish": "(npm test || true)",
     "preinstall": "rm -rf node_modules/app || true",
     "postinstall": "ln -s ../ node_modules/app"
@@ -21,24 +21,39 @@
   },
   "dependencies": {
     "bluebird": "^3.4.6",
+    "browser-sync": "^2.18.8",
     "caller-id": "^0.1.0",
     "chalk": "^1.1.3",
     "cheerio": "^0.22.0",
+    "chokidar": "^1.6.1",
     "connect": "^3.5.0",
+    "connect-livereload": "^0.6.0",
     "ctrl-c": "^2.2.5",
+    "deep-equal": "^1.0.1",
+    "forever": "^0.15.3",
     "handlebars": "^4.0.6",
     "http-shutdown": "^1.1.0",
     "log4js": "^1.0.1",
-    "markserv-contrib-app.github": "^1.0.7",
+    "markserv-contrib-app.github": "^1.0.77",
     "minimatch": "^3.0.3",
     "open": "^0.0.5",
-    "open-port-host": "^1.0.2",
-    "sigint": "^1.0.0"
+    "open-port-host": "^2.0.0",
+    "packpath": "^0.1.0",
+    "resolve": "^1.2.0",
+    "sigint": "^1.0.0",
+    "watch": "^1.0.1"
   },
   "devDependencies": {
     "chai": "^3.5.0",
     "chai-as-promised": "^6.0.0",
+    "chromedriver": "^2.27.3",
     "mocha": "^3.2.0",
+    "mocha-phantomjs": "^4.1.0",
+    "node-horseman": "^3.2.0",
+    "node-slimer": "^0.2.10",
+    "selenium-webdriver": "^3.1.0",
+    "wdio-phantomjs-service": "^0.2.2",
+    "webdriverio": "^4.6.2",
     "xo": "^0.17.1"
   },
   "keywords": [

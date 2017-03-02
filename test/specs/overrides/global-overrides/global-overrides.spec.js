@@ -36,10 +36,7 @@ describe('global overrides', () => {
 				res.setEncoding('utf8');
 				res.on('data', data => {
 					expect(data).to.equal(expectedHtml);
-
-					markserv.shutdown(markserv);
-
-					done();
+					markserv.shutdown(markserv, done);
 				});
 			})
 			.on('error', err => {

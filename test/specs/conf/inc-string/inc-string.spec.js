@@ -35,9 +35,7 @@ describe('Markconf with includer single string', () => {
 			expect(htmlIncluder.name).to.equal('markserv-contrib-inc.html');
 			expect(htmlIncluder.htmlCommentIncluder).to.be.a('function');
 
-			markserv.shutdown(markserv);
-
-			done();
+			markserv.shutdown(markserv, done);
 		});
 	});
 });

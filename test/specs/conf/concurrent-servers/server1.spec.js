@@ -13,12 +13,11 @@ describe('single modifier', () => {
 	it('should initialize', done => {
 		require('app/markserv')(argv).then(markserv => {
 			// console.log(markserv);
+			// process.exit();
 
 			expect(markserv.initialized).to.be.a('boolean');
 			expect(markserv.initialized).to.equal(true);
-			markserv.shutdown(markserv);
-
-			done();
+			markserv.shutdown(markserv, done);
 		});
 	});
 });

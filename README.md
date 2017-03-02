@@ -9,6 +9,5 @@
 
 markserv command line interface
 
-(comming soon)
-
+(comming soon~ish)
 
