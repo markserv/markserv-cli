@@ -8,7 +8,7 @@ const Markconf = {
 
 	watch: {
 		files: [
-			// '**/*.html'
+			'**/*.html'
 		]
 	}
 };

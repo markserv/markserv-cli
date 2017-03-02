@@ -1,6 +1,5 @@
 const fs = require('fs');
 const path = require('path');
-const http = require('http');
 
 const Horseman = require('node-horseman');
 const chai = require('chai');
@@ -17,20 +16,22 @@ const argv = [null, null,
 ];
 
 const fileStates = [
-	'<h1>Test 1</h1>',
-	'<h2>Test 2</h2>'
+	'<html><body><h1>Test 1</h1></body></html>',
+	'<html><body><h2>Test 2</h2></body></html>'
 ];
 
 const horseman = new Horseman();
 
 const writeState = index => {
-	fs.writeFileSync('./partials/test.md', fileStates[index], err => {
-
+	fs.writeFileSync('./partials/test.html', fileStates[index], err => {
 		if (err) {
 			return console.error(err);
 		}
 	});
 };
+
+const expectedHtml1 = fs.readFileSync(path.join(__dirname, 'expected1.html'), 'utf8');
+const expectedHtml2 = fs.readFileSync(path.join(__dirname, 'expected2.html'), 'utf8');
 
 writeState(0);
 
@@ -45,33 +46,24 @@ describe('single modifier', () => {
 			expect(markserv.initialized).to.equal(true);
 			expect(markserv.MarkconfJs).to.be.an('object');
 
-			const expectedHtml1 = fs.readFileSync(path.join(__dirname, 'expected.html'), 'utf8');
-
-			let html;
-
 			horseman
 			.userAgent('Mozilla/5.0 (Windows NT 6.1; WOW64; rv:27.0) Gecko/20100101 Firefox/27.0')
-			.open('http://localhost:8002/partials/test.md')
-			.wait(1000)
+			.open('http://localhost:8000/partials/test.html')
+			.wait(100)
 			.evaluate(function () {
 				return document.getElementsByTagName('body')[0].innerHTML;
 			})
-			.then(function (html1) {
-				// Will log 'Hello World' after a roughly 100 ms delay.
-				console.log('1111111111111111111111111111111');
-				console.log(html1);
-				// expect(html1).to.equal(expectedHtml1);
+			.then(function (actualHtml1) {
+				expect(expectedHtml1).to.equal(actualHtml1);
 				writeState(1);
 			})
-			.wait(3000)
+			.wait(500)
 			.evaluate(function () {
 				return document.getElementsByTagName('body')[0].innerHTML;
 			})
-			.then(function (html2) {
-				console.log('2222222222222222222222222222222');
-				// Will log 'Hello World' after a roughly 100 ms delay.
-				console.log(html2);
-				expect(html2).to.equal(expectedHtml1);
+			.then(function (actualHtml2) {
+				expect(expectedHtml2).to.equal(actualHtml2);
+				expect(actualHtml2).to.equal(expectedHtml2);
 				done();
 			})
 			.close();
