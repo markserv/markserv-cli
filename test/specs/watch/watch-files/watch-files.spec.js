@@ -23,8 +23,11 @@ const fileStates = [
 
 const horseman = new Horseman();
 
+const partialFilePath = path.join(__dirname, 'partials/test.html');
+
 const writeState = index => {
-	fs.writeFileSync(path.join(__dirname, 'partials/test.html'), fileStates[index], err => {
+	const fileText = fileStates[index].toString();
+	fs.writeFileSync(partialFilePath, fileText, 'utf8', err => {
 		if (err) {
 			return console.error(err);
 		}
