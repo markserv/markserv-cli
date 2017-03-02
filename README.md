@@ -9,5 +9,20 @@
 
 markserv command line interface
 
-(comming soon~ish)
+(comming soon)
 
+## Feature Implementation Checklist
+
+- [x] Watch (Built-in BrowserSync)
+- [ ] HTML Export
+
+## Tests That Need Adding
+
+- html modifier works (there are some bugs in requests)
+- binary file modifier has right data
+- binary file modifier has right mime type
+- watch
+	- test reload of Markconf.js
+	- test reload of sub/Markconf.js
+	- test reload of plugins
+	- test reload of templates
