@@ -12,6 +12,10 @@ const Markconf = {
 			'**/*.md',
 			// '**/*.html'
 		]
+	},
+
+	export: {
+		'**/*.md': 'dest/'
 	}
 };
 
