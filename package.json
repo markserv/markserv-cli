@@ -80,6 +80,7 @@
   "homepage": "https://github.com/markserv/markserv-cli#readme",
   "xo": {
     "esnext": true,
+    "semicolon": false,
     "globals": [
       "it",
       "describe",
