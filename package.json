@@ -37,6 +37,7 @@
     "log4js": "^1.0.1",
     "markserv-contrib-app.github": "^1.0.77",
     "minimatch": "^3.0.3",
+    "mkdirp": "^0.5.1",
     "node-dir": "^0.1.16",
     "open": "^0.0.5",
     "open-port-host": "^2.0.0",
