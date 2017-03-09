@@ -16,6 +16,7 @@ const Markconf = {
 
 	export: {
 		'**/*.md': 'dest/',
+		'**/*.html': 'dest/'
 	}
 }
 
