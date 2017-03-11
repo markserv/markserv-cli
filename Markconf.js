@@ -9,9 +9,8 @@ const Markconf = {
 		Markconf: true,
 		plugins: true,
 		files: [
-			'**/*.md',
-			'**/*.html',
-			'!**/tmp/*'
+			'**/*.md!tmp/**/*.md',
+			'**/*.html'
 		]
 	},
 
