@@ -95,7 +95,7 @@
       "import/no-dynamic-require": 0,
       "import/no-unresolved": 0,
       "no-use-extend-native": 0,
-      "no-multi-str": 0
+      "no-multi-str": 0,
     },
     "overrides": [
       {
