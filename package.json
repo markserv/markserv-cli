@@ -33,6 +33,8 @@
     "filter-files": "^0.4.0",
     "forever": "^0.15.3",
     "handlebars": "^4.0.6",
+    "html-validator": "^2.2.0",
+    "htmllint": "^0.6.0",
     "http-shutdown": "^1.1.0",
     "log4js": "^1.0.1",
     "markserv-contrib-app.github": "^1.0.77",
@@ -45,6 +47,7 @@
     "recursive-readdir": "^2.1.1",
     "resolve": "^1.2.0",
     "sigint": "^1.0.0",
+    "unclosed-markup": "^1.1.0",
     "watch": "^1.0.1"
   },
   "devDependencies": {
@@ -95,7 +98,7 @@
       "import/no-dynamic-require": 0,
       "import/no-unresolved": 0,
       "no-use-extend-native": 0,
-      "no-multi-str": 0,
+      "no-multi-str": 0
     },
     "overrides": [
       {
