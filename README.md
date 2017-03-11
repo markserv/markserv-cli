@@ -26,3 +26,5 @@ markserv command line interface
 	- test reload of sub/Markconf.js
 	- test reload of plugins
 	- test reload of templates
+
+<!--markserv|markdown|doc/examples/includes/markdown-in-markdown/something.md-->

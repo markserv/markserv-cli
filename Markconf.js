@@ -9,14 +9,16 @@ const Markconf = {
 		Markconf: true,
 		plugins: true,
 		files: [
-			'**/*.md!tmp/**/*.md',
+			'**/*.md',
 			'**/*.html'
+			// '**/*.md!tmp/**/*.md',
+			// '**/*.html!tmp/**/*.html'
 		]
 	},
 
-	export: {
-		'**/*.md': 'tmp/destmd'
-	}
+	// export: {
+	// 	'**/*.md': 'tmp/destmd'
+	// }
 }
 
 module.exports = Markconf
