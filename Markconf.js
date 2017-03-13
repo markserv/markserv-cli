@@ -10,11 +10,10 @@ const Markconf = {
 		plugins: true,
 		files: [
 			'**/*.md',
-			'**/*.html'
-			// '**/*.md!tmp/**/*.md',
-			// '**/*.html!tmp/**/*.html'
+			'**/*.html',
+			'!tmp/**/*'
 		]
-	},
+	}
 
 	// export: {
 	// 	'**/*.md': 'tmp/destmd'
