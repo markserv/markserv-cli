@@ -38,7 +38,7 @@
     "http-shutdown": "^1.1.0",
     "log4js": "^1.0.1",
     "markserv-contrib-app.github": "^1.1.77",
-    "minimatch": "^3.0.3",
+    "micromatch": "^2.3.11",
     "mkdirp": "^0.5.1",
     "node-dir": "^0.1.16",
     "open": "^0.0.5",
