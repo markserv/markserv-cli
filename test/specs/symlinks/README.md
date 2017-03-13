@@ -1,0 +1,2 @@
+- Test that symlinked dirs are served as expected
+- Test that symlinked files are served as expected

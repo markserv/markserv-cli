@@ -11,7 +11,7 @@ const Markconf = {
 		files: [
 			'**/*.md',
 			'**/*.html',
-			'!tmp/**/*'
+			// '!tmp/**/*'
 		]
 	}
 
