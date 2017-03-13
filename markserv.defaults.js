@@ -15,6 +15,22 @@ module.exports = {
 			'.text'
 		]
 	},
+	watch: {
+		ignore: [
+			'**/node_modules/*',
+			'**/.git/*',
+			'**/.svn/*',
+			'**/.hg/*'
+		]
+	},
+	export: {
+		ignore: [
+			'**/node_modules/*',
+			'**/.git/*',
+			'**/.svn/*',
+			'**/.hg/*'
+		]
+	},
 	options: {
 		root: {
 			help: 'Root directory to serve, eg: htdocs/public/static [root]',
