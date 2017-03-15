@@ -11,13 +11,23 @@ const Markconf = {
 		files: [
 			'**/*.md',
 			'**/*.html',
-			// '!tmp/**/*'
+			// '!tmp/'
 		]
-	}
+	},
 
-	// export: {
-	// 	'**/*.md': 'tmp/destmd'
-	// }
+	export: {
+		ignore: [
+			'.git',
+			'node_modules',
+			'tmp'
+		],
+		serve: {
+			'tmp/destmd': ['**/*.md', '!tmp/']
+		},
+		copy: {
+
+		}
+	}
 }
 
 module.exports = Markconf

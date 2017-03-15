@@ -17,18 +17,20 @@ module.exports = {
 	},
 	watch: {
 		ignore: [
-			'**/node_modules/*',
-			'**/.git/*',
-			'**/.svn/*',
-			'**/.hg/*'
+			'node_modules',
+			'.git',
+			'.svn',
+			'.hg',
+			'tmp'
 		]
 	},
 	export: {
 		ignore: [
-			'**/node_modules/*',
-			'**/.git/*',
-			'**/.svn/*',
-			'**/.hg/*'
+			'node_modules',
+			'.git',
+			'.svn',
+			'.hg',
+			'tmp'
 		]
 	},
 	options: {
