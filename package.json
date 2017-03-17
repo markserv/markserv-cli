@@ -1,6 +1,6 @@
 {
   "name": "markserv-cli",
-  "version": "1.0.64",
+  "version": "1.1.0",
   "description": "Launch your Markdown content into hyper-space. TEST",
   "preferGlobal": true,
   "main": "markserv.js",
@@ -37,7 +37,7 @@
     "htmllint": "^0.6.0",
     "http-shutdown": "^1.1.0",
     "log4js": "^1.0.1",
-    "markserv-contrib-app.github": "^1.1.77",
+    "markserv-contrib-app.github": "^1.2.0",
     "micromatch": "^2.3.11",
     "mkdirp": "^0.5.1",
     "node-dir": "^0.1.16",
