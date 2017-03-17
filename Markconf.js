@@ -11,7 +11,7 @@ const Markconf = {
 		files: [
 			'**/*.md',
 			'**/*.html',
-			// '!tmp/'
+			'!tmp/'
 		]
 	},
 
@@ -22,10 +22,10 @@ const Markconf = {
 			'tmp'
 		],
 		serve: {
-			'tmp/destmd': ['**/*.md', '!tmp/']
+			'tmp/destmd': ['**/*.md']
 		},
 		copy: {
-
+			'tmp/destmd': ['**/*.json']
 		}
 	}
 }
