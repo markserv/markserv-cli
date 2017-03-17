@@ -70,7 +70,7 @@ describe('watch html file (browserSync/cokidar)', () => {
 					// that differ between OSX/Linux/win
 					actualHtml1 = actualHtml1.split('\n')[3];
 					expect(expectedHtml1).to.equal(actualHtml1);
-					console.log();
+					// console.log();
 					writeState(1);
 				})
 				.wait(500)
