@@ -41,7 +41,7 @@ writeState(0)
 
 describe('watch html file (browserSync/cokidar)', () => {
 	it('should reload page when file changes', function (done) {
-		this.timeout(10000)
+		this.timeout(20000)
 
 		require('app/markserv')(argv).then(markserv => {
 			// console.log(markserv)
@@ -66,11 +66,11 @@ describe('watch html file (browserSync/cokidar)', () => {
 					return document.getElementsByTagName('body')[0].innerHTML
 				})
 				.then(function (actualHtml1) {
+					// console.log(1, actualHtml1)
 					// get rid of browsersync js that <script> with paths
 					// that differ between OSX/Linux/win
 					actualHtml1 = actualHtml1.split('\n')[3]
 					expect(expectedHtml1).to.equal(actualHtml1)
-					// console.log()
 					writeState(1)
 				})
 				.wait(500)
@@ -78,6 +78,7 @@ describe('watch html file (browserSync/cokidar)', () => {
 					return document.getElementsByTagName('body')[0].innerHTML
 				})
 				.then(function (actualHtml2) {
+					// console.log(2, actualHtml2)
 					// get rid of browsersync js that <script> with paths
 					// that differ between OSX/Linux/win
 					actualHtml2 = actualHtml2.split('\n')[3]

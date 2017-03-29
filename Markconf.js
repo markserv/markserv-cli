@@ -13,9 +13,9 @@ const Markconf = {
 			'**/*.html',
 			'!tmp/'
 		]
-	},
+	}
 
-	export: {
+	// export: {
 		// ignore: [
 		// 	'.git',
 		// 	'node_modules',
@@ -27,7 +27,7 @@ const Markconf = {
 		// copy: {
 		// 	'tmp/destmd': ['**/*.json']
 		// }
-	}
+	// }
 }
 
 module.exports = Markconf

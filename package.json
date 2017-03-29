@@ -45,6 +45,8 @@
     "open": "^0.0.5",
     "open-port-host": "^2.0.0",
     "packpath": "^0.1.0",
+    "phantom": "^4.0.1",
+    "phantomjs": "^2.1.7",
     "recursive-readdir": "^2.1.1",
     "resolve": "^1.2.0",
     "sigint": "^1.0.0",
