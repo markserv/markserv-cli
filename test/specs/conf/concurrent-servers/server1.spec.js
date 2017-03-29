@@ -9,7 +9,7 @@ const argv = [null, null,
 	'-l', 'OFF'
 ];
 
-describe('single modifier', () => {
+describe('concurrent server 1', () => {
 	it('should initialize', done => {
 		require('app/markserv')(argv).then(markserv => {
 			// console.log(markserv);
