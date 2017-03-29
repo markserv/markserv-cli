@@ -5,6 +5,6 @@ const Markconf = {
 	modifiers: {
 		'**/*.*': 'local-mods/custom-modifier.js'
 	}
-};
+}
 
-module.exports = Markconf;
+module.exports = Markconf
