@@ -65,4 +65,4 @@ module.exports = {
 			flag: '-l'
 		}
 	}
-};
+}

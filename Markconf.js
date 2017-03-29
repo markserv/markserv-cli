@@ -5,29 +5,29 @@ const Markconf = {
 		MarkconfUrl: __filename
 	},
 
-	// watch: {
-	// 	Markconf: true,
-	// 	plugins: true,
-	// 	files: [
-	// 		'**/*.md',
-	// 		'**/*.html',
-	// 		'!tmp/'
-	// 	]
-	// },
+	watch: {
+		Markconf: true,
+		plugins: true,
+		files: [
+			'**/*.md',
+			'**/*.html',
+			'!tmp/'
+		]
+	},
 
-	// export: {
-	// 	ignore: [
-	// 		'.git',
-	// 		'node_modules',
-	// 		'tmp'
-	// 	],
-	// 	serve: {
-	// 		'tmp/destmd': ['**/*.md']
-	// 	},
-	// 	copy: {
-	// 		'tmp/destmd': ['**/*.json']
-	// 	}
-	// }
+	export: {
+		// ignore: [
+		// 	'.git',
+		// 	'node_modules',
+		// 	'tmp'
+		// ],
+		// serve: {
+		// 	'tmp/destmd': ['**/*.md']
+		// },
+		// copy: {
+		// 	'tmp/destmd': ['**/*.json']
+		// }
+	}
 }
 
 module.exports = Markconf
