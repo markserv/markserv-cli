@@ -37,7 +37,7 @@ const expectedHtml2 = fs.readFileSync(path.join(__dirname, 'expected2.html'), 'u
 
 describe('watch html file (browserSync/cokidar)', () => {
 	it('should reload page when file changes', function (done) {
-		const timeout = 10 * 1000
+		const timeout = 20 * 1000
 		this.timeout(timeout)
 
 		require('app/markserv')(argv).then(markserv => {
