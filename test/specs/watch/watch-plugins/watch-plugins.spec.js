@@ -19,7 +19,6 @@ const argv = [null, null,
 	// '-l', 'TRACE'
 ]
 
-const horseman = new Horseman()
 
 const modifierFilepath = path.join(__dirname, 'custom-modifier.js')
 
@@ -33,7 +32,8 @@ const expectedHtml2 = fs.readFileSync(path.join(__dirname, 'expected2.html'), 'u
 
 describe('watch Markconf.js plugins', () => {
 	it('should reload page when plugin changes', function (done) {
-		this.timeout(10 * 1000)
+		const timeout = 20 * 1000
+		this.timeout(timeout)
 
 		require('app/markserv')(argv).then(markserv => {
 			// console.log(markserv)
@@ -52,7 +52,9 @@ describe('watch Markconf.js plugins', () => {
 			writeState(1)
 
 			setTimeout(() => {
-				horseman
+				const horseman = new Horseman({
+					timeout: timeout
+				})
 				.userAgent('Mozilla/5.0 (Windows NT 6.1 WOW64 rv:27.0) Gecko/20100101 Firefox/27.0')
 				.open(url)
 				.evaluate(function () {
@@ -65,11 +67,11 @@ describe('watch Markconf.js plugins', () => {
 					// console.log(expectedHtml1)
 					// console.log(actualHtml1)
 					expect(expectedHtml1).to.equal(actualHtml1)
-				})
-				.wait(250)
-				.then(function () {
 					writeState(2)
 				})
+				// .wait(250)
+				// .then(function () {
+				// })
 				.wait(500)
 				.evaluate(function () {
 					return document.getElementsByTagName('body')[0].innerHTML

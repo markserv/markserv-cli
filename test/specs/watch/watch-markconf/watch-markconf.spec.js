@@ -13,13 +13,8 @@ const argv = [null, null,
 	'-o', false,
 	'-b', false,
 	'-n', false,
-	'-l', 'OFF',
-	// Turn off the logger for testing
-	// '-p', '8889',
-	// '-l', 'TRACE'
+	'-l', 'OFF'
 ]
-
-const horseman = new Horseman()
 
 const MarkconfFilePath = path.join(__dirname, 'Markconf.js')
 
@@ -33,8 +28,8 @@ const expectedHtml2 = fs.readFileSync(path.join(__dirname, 'expected2.html'), 'u
 
 describe('watch Markconf.js', () => {
 	it('should reload page when Markconf.js changes', function (done) {
-		this.timeout(5 * 1000)
-		writeState(1)
+		const timeout = 10 * 1000
+		this.timeout(timeout)
 
 		require('app/markserv')(argv).then(markserv => {
 			// console.log(markserv)
@@ -50,9 +45,12 @@ describe('watch Markconf.js', () => {
 			const url = `http://${address}:${port}/test.html`
 
 			// console.log(url)
+			writeState(1)
 
 			setTimeout(() => {
-				horseman
+				const horseman = new Horseman({
+					timeout: timeout
+				})
 				.userAgent('Mozilla/5.0 (Windows NT 6.1 WOW64 rv:27.0) Gecko/20100101 Firefox/27.0')
 				.wait(100)
 				.open(url)

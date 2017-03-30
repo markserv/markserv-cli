@@ -10,21 +10,16 @@ const argv = [null, null,
 	// Use the Markconf file from this spec directory
 	'-c', __dirname,
 	'-r', __dirname,
-	'-l', 'OFF',
 	'-o', false,
 	'-b', false,
-	'-n', false
-	// Turn off the logger for testing
-	// '-p', '8889',
-	// '-l', 'TRACE'
+	'-n', false,
+	'-l', 'OFF'
 ]
 
 const fileStates = [
 	'<html><body><h1>Test 1</h1></body></html>',
 	'<html><body><h2>Test 2</h2></body></html>'
 ]
-
-const horseman = new Horseman()
 
 const partialFilePath = path.join(__dirname, 'test.html')
 
@@ -40,10 +35,10 @@ const writeState = index => {
 const expectedHtml1 = fs.readFileSync(path.join(__dirname, 'expected1.html'), 'utf8')
 const expectedHtml2 = fs.readFileSync(path.join(__dirname, 'expected2.html'), 'utf8')
 
-
 describe('watch html file (browserSync/cokidar)', () => {
 	it('should reload page when file changes', function (done) {
-		this.timeout(20000)
+		const timeout = 10 * 1000
+		this.timeout(timeout)
 
 		require('app/markserv')(argv).then(markserv => {
 			// console.log(markserv)
@@ -62,7 +57,9 @@ describe('watch html file (browserSync/cokidar)', () => {
 			writeState(0)
 
 			setTimeout(() => {
-				horseman
+				const horseman = new Horseman({
+					timeout: timeout
+				})
 				.userAgent('Mozilla/5.0 (Windows NT 6.1 WOW64 rv:27.0) Gecko/20100101 Firefox/27.0')
 				.open(url)
 				.evaluate(function () {
