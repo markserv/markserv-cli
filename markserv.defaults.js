@@ -66,17 +66,17 @@ module.exports = {
 		},
 		open: {
 			help: 'Open browser [open]',
-			value: false,
+			value: true,
 			flag: '-o'
 		},
 		browsersyncLogLevel: {
-			help: 'Browsersync terminal log level: info, debug, warn, silent [browsersyncLogLevel]',
+			help: 'Browsersync loglevel: info, debug, warn, silent [browsersyncLogLevel]',
 			value: 'silent',
 			flag: '-b'
 		},
-		browserSyncNotify: {
-			help: 'Browsersync notifications: true, false [notify]',
-			value: false,
+		browsersyncNofity: {
+			help: 'Browsersync notifify: true, false [browsersyncNofity]',
+			value: 'false',
 			flag: '-n'
 		}
 	}
