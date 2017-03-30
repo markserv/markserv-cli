@@ -61,6 +61,7 @@
     "mocha-phantomjs": "^4.1.0",
     "node-horseman": "^3.2.0",
     "node-slimer": "^0.2.10",
+    "rimraf": "^2.6.1",
     "selenium-webdriver": "^3.1.0",
     "wdio-phantomjs-service": "^0.2.2",
     "webdriverio": "^4.6.2",
