@@ -10,7 +10,10 @@ const argv = [null, null,
 	// Use the Markconf file from this spec directory
 	'-c', __dirname,
 	'-r', __dirname,
-	'-l', 'OFF'
+	'-l', 'OFF',
+	'-o', false,
+	'-b', false,
+	'-n', false
 	// Turn off the logger for testing
 	// '-p', '8889',
 	// '-l', 'TRACE'
@@ -23,7 +26,7 @@ const fileStates = [
 
 const horseman = new Horseman()
 
-const partialFilePath = path.join(__dirname, 'partials/test.html')
+const partialFilePath = path.join(__dirname, 'test.html')
 
 const writeState = index => {
 	const fileText = fileStates[index].toString()
@@ -54,7 +57,7 @@ describe('watch html file (browserSync/cokidar)', () => {
 
 			const address = markserv.args.address
 			const port = markserv.browserSync.port
-			const url = `http://${address}:${port}/partials/test.html`
+			const url = `http://${address}:${port}/test.html`
 
 			// console.log(url)
 
