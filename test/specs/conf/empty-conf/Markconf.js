@@ -1,4 +1,4 @@
 const Markconf = {
-};
+}
 
-module.exports = Markconf;
+module.exports = Markconf

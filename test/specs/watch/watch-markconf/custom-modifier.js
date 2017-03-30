@@ -5,7 +5,7 @@ module.exports = {
 			resolve({
 				statusCode: 200,
 				contentType: 'text/html',
-				data: '<h1>Watch Markconf working!</h1>'
+				data: '<html><body><h1>Watch Markconf working!</h1></body></html>'
 			})
 		})
 	}
