@@ -1,15 +1,11 @@
 const Markconf = {
-
 	modifiers: {
 		'**/': 'markserv-contrib-mod.dir',
-		'**/*.html': 'markserv-contrib-mod.html'
+		// modifiers dont reload?
+		'**/*.html': 'custom-modifier'
 	},
-
 	watch: {
-		files: [
-			'**/*.html',
-			'!tmp/'
-		]
+		Markconf: true
 	}
 }
 

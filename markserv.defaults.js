@@ -55,7 +55,7 @@ module.exports = {
 			flag: '-c'
 		},
 		defaults: {
-			help: 'Markconf.Defaults.js file to use [defaults]',
+			help: 'Markconf.Defaults.js file to use [Markconf.Defaults.js]',
 			value: './lib/Markconf.Defaults.js',
 			flag: '-d'
 		},
@@ -63,6 +63,21 @@ module.exports = {
 			help: 'Logging verbosity: OFF, TRACE, DEBUG, INFO, WARN, ERROR, FATAL [loglevel]',
 			value: 'INFO',
 			flag: '-l'
+		},
+		open: {
+			help: 'Open browser [open]',
+			value: false,
+			flag: '-o'
+		},
+		browsersyncLogLevel: {
+			help: 'Browsersync terminal log level: info, debug, warn, silent [browsersyncLogLevel]',
+			value: 'silent',
+			flag: '-b'
+		},
+		browserSyncNotify: {
+			help: 'Browsersync notifications: true, false [notify]',
+			value: false,
+			flag: '-n'
 		}
 	}
 }
