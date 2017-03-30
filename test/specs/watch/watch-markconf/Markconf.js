@@ -1,7 +1,7 @@
 const Markconf = {
 	modifiers: {
 		'**/': 'markserv-contrib-mod.dir',
-		'**/*.html': 'markserv-contrib-mod.html'
+		'**/*.html': 'custom-modifier'
 	},
 	watch: {
 		Markconf: true
@@ -9,4 +9,3 @@ const Markconf = {
 }
 
 module.exports = Markconf
-

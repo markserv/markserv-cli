@@ -65,7 +65,7 @@ describe('watch html file (browserSync/cokidar)', () => {
 				horseman
 				.userAgent('Mozilla/5.0 (Windows NT 6.1 WOW64 rv:27.0) Gecko/20100101 Firefox/27.0')
 				.open(url)
-				.wait(2000)
+				.wait(500)
 				.evaluate(function () {
 					return document.getElementsByTagName('body')[0].innerHTML
 				})
@@ -77,7 +77,7 @@ describe('watch html file (browserSync/cokidar)', () => {
 					expect(expectedHtml1).to.equal(actualHtml1)
 					writeState(1)
 				})
-				.wait(2000)
+				.wait(500)
 				.evaluate(function () {
 					return document.getElementsByTagName('body')[0].innerHTML
 				})
@@ -90,7 +90,7 @@ describe('watch html file (browserSync/cokidar)', () => {
 					done()
 				})
 				.close()
-			}, 3000)
+			}, 500)
 		})
 	})
 })
