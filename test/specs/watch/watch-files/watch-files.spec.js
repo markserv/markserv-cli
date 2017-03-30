@@ -40,7 +40,6 @@ const writeState = index => {
 const expectedHtml1 = fs.readFileSync(path.join(__dirname, 'expected1.html'), 'utf8')
 const expectedHtml2 = fs.readFileSync(path.join(__dirname, 'expected2.html'), 'utf8')
 
-writeState(0)
 
 describe('watch html file (browserSync/cokidar)', () => {
 	it('should reload page when file changes', function (done) {
@@ -60,12 +59,12 @@ describe('watch html file (browserSync/cokidar)', () => {
 			const url = `http://${address}:${port}/test.html`
 
 			// console.log(url)
+			writeState(0)
 
 			setTimeout(() => {
 				horseman
 				.userAgent('Mozilla/5.0 (Windows NT 6.1 WOW64 rv:27.0) Gecko/20100101 Firefox/27.0')
 				.open(url)
-				.wait(500)
 				.evaluate(function () {
 					return document.getElementsByTagName('body')[0].innerHTML
 				})
@@ -90,7 +89,7 @@ describe('watch html file (browserSync/cokidar)', () => {
 					done()
 				})
 				.close()
-			}, 500)
+			}, 1000)
 		})
 	})
 })

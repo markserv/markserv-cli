@@ -60,7 +60,7 @@ module.exports = {
 			flag: '-d'
 		},
 		loglevel: {
-			help: 'Logging verbosity: OFF, TRACE, DEBUG, INFO, WARN, ERROR, FATAL [loglevel]',
+			help: 'Logging level: OFF, TRACE, DEBUG, INFO, WARN, ERROR, FATAL [type]',
 			value: 'INFO',
 			flag: '-l'
 		},
