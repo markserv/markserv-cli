@@ -14,7 +14,8 @@ markserv command line interface
 ## Feature Implementation Checklist
 
 - [x] Watch (Built-in BrowserSync)
-- [ ] HTML Export
+- [X] HTML Export
+- [ ] File Copy
 
 ## Tests That Need Adding
 
@@ -22,7 +23,6 @@ markserv command line interface
 - binary file modifier has right data
 - binary file modifier has right mime type
 - watch
-	- test reload of Markconf.js
-	- test reload of sub/Markconf.js
-	- test reload of plugins
 	- test reload of templates
+
+<!--markserv|markdown|doc/examples/includes/markdown-in-markdown/something.md-->

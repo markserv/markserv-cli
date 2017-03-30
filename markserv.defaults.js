@@ -15,6 +15,24 @@ module.exports = {
 			'.text'
 		]
 	},
+	watch: {
+		ignore: [
+			'node_modules',
+			'.git',
+			'.svn',
+			'.hg',
+			'tmp'
+		]
+	},
+	export: {
+		ignore: [
+			'node_modules',
+			'.git',
+			'.svn',
+			'.hg',
+			'tmp'
+		]
+	},
 	options: {
 		root: {
 			help: 'Root directory to serve, eg: htdocs/public/static [root]',
@@ -37,14 +55,29 @@ module.exports = {
 			flag: '-c'
 		},
 		defaults: {
-			help: 'Markconf.Defaults.js file to use [defaults]',
+			help: 'Markconf.Defaults.js file to use [Markconf.Defaults.js]',
 			value: './lib/Markconf.Defaults.js',
 			flag: '-d'
 		},
 		loglevel: {
-			help: 'Logging verbosity: OFF, TRACE, DEBUG, INFO, WARN, ERROR, FATAL [loglevel]',
+			help: 'Logging level: OFF, TRACE, DEBUG, INFO, WARN, ERROR, FATAL [type]',
 			value: 'INFO',
 			flag: '-l'
+		},
+		open: {
+			help: 'Open browser [open]',
+			value: true,
+			flag: '-o'
+		},
+		browsersyncLogLevel: {
+			help: 'Browsersync loglevel: info, debug, warn, silent [browsersyncLogLevel]',
+			value: 'silent',
+			flag: '-b'
+		},
+		browsersyncNofity: {
+			help: 'Browsersync notifify: true, false [browsersyncNofity]',
+			value: 'false',
+			flag: '-n'
 		}
 	}
-};
+}

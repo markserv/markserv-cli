@@ -1,6 +1,5 @@
 const Markconf = {
 
-	// import: 'markserv-contrib-app.github',
 	modifiers: {
 		'**/': 'markserv-contrib-mod.dir',
 		'**/*.html': 'markserv-contrib-mod.html'
@@ -8,9 +7,10 @@ const Markconf = {
 
 	watch: {
 		files: [
-			'**/*.html'
+			'**/*.html',
+			'!tmp/'
 		]
 	}
-};
+}
 
-module.exports = Markconf;
+module.exports = Markconf

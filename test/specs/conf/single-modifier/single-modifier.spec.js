@@ -1,6 +1,6 @@
-const chai = require('chai');
+const chai = require('chai')
 
-const expect = chai.expect;
+const expect = chai.expect
 
 const argv = [null, null,
 	// Use the Markconf file from this spec directory
@@ -8,16 +8,16 @@ const argv = [null, null,
 	// Turn off the logger for testing
 	'-l', 'OFF'
 	// '-l', 'TRACE'
-];
+]
 
 describe('single modifier', () => {
 	it('should initialize', done => {
 		require('app/markserv')(argv).then(markserv => {
-			// console.log(markserv);
+			// console.log(markserv)
 
-			expect(markserv.initialized).to.be.a('boolean');
-			expect(markserv.initialized).to.equal(true);
-			markserv.shutdown(markserv, done);
-		});
-	});
-});
+			expect(markserv.initialized).to.be.a('boolean')
+			expect(markserv.initialized).to.equal(true)
+			markserv.shutdown(markserv, done)
+		})
+	})
+})

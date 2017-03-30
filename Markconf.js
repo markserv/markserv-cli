@@ -10,29 +10,24 @@ const Markconf = {
 		plugins: true,
 		files: [
 			'**/*.md',
-			// '**/*.html'
+			'**/*.html',
+			'!tmp/'
 		]
 	}
-};
 
-module.exports = Markconf;
+	// export: {
+		// ignore: [
+		// 	'.git',
+		// 	'node_modules',
+		// 	'tmp'
+		// ],
+		// serve: {
+		// 	'tmp/destmd': ['**/*.md']
+		// },
+		// copy: {
+		// 	'tmp/destmd': ['**/*.json']
+		// }
+	// }
+}
 
-// const Markconf = {
-// 	// import: 'markserv-contrib-app.github',
-
-// 	modifiers: {
-// 		'**/': 'markserv-contrib-mod.dir',
-// 		'**/*.html': 'markserv-contrib-mod.html'
-// 	},
-
-// 	watch: {
-// 		// Markconf: true,
-// 		// plugins: true,
-// 		files: [
-// 			'
-// 		]
-// 	}
-// };
-
-// module.exports = Markconf;
-
+module.exports = Markconf
