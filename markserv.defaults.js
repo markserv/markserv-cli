@@ -66,7 +66,7 @@ module.exports = {
 		},
 		open: {
 			help: 'Open browser [open]',
-			value: true,
+			value: false,
 			flag: '-o'
 		},
 		browsersyncLogLevel: {
