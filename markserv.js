@@ -1,12 +1,12 @@
 #!/usr/bin/env node
-const init = require('app/lib/core/init.js');
+const init = require('app/lib/core/init.js')
 
-Error.stackTraceLimit = 50;
+Error.stackTraceLimit = 50
 
-const CLI = !module.parent;
+const CLI = !module.parent
 
 if (CLI) {
-	init(process.argv);
+	init(process.argv)
 }
 
-module.exports = init;
+module.exports = init
